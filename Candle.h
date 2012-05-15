@@ -22,6 +22,12 @@ class Candle : public QObject {
   virtual DateTime *getCloseTime() const;
   virtual bool isValid() const;
   virtual int compare(const Candle&) const;
+  virtual bool operator>(const Candle &) const;
+  virtual bool operator>=(const Candle &) const;
+  virtual bool operator==(const Candle &) const;
+  virtual bool operator<=(const Candle &) const;
+  virtual bool operator<(const Candle &) const;
+  
 };
   
 

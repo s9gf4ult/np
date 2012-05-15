@@ -40,12 +40,31 @@ bool Candle::isValid() const {
 };
 
 int Candle::compare(const Candle& cndl) const {
-  int c1 = compare<DateTime>(*(this->getOpenTime()), *(cndl.getOpenTime()));
+  int c1 = cmp(*(this->getOpenTime()), *(cndl.getOpenTime()));
   if (c1 != 0) {
     return c1;
   } else {
-    return compare<DateTime>(*(this->getCloseTime()), *(cndl.getCloseTime()));
+    return cmp(*(this->getCloseTime()), *(cndl.getCloseTime()));
   };
   return 0;
 };
 
+bool Candle::operator>(const Candle &a) const {
+  return this->compare(a) > 0;
+}
+
+bool Candle::operator>=(const Candle &a) const {
+  return this->compare(a) >= 0;
+}
+
+bool Candle::operator==(const Candle &a) const {
+  return this->compare(a) == 0;
+}
+
+bool Candle::operator<=(const Candle &a) const {
+  return this->compare(a) <= 0;
+}
+
+bool Candle::operator<(const Candle &a) const {
+  return this->compare(a) < 0;
+}
