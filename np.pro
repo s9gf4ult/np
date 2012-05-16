@@ -9,4 +9,4 @@ INCLUDEPATH += .
 
 # Input
 HEADERS += Candle.h CandlesVector.h Common.h DateTime.h
-SOURCES += Candle.cpp
+SOURCES += Candle.cpp CandlesVector.cpp
