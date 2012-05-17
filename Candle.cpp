@@ -6,6 +6,9 @@ Candle::Candle (double OpenCost, double CloseCost, double LowCost, double HighCo
   OpenCost(OpenCost), CloseCost(CloseCost), LowCost(LowCost), HighCost(HighCost), OpenTime(OpenTime), CloseTime(CloseTime) {
 };
 
+Candle::Candle() : OpenCost(0), CloseCost(0), LowCost(0), HighCost(0) {
+};
+
 double Candle::getOpenCost() const {
   return this->OpenCost;
 };

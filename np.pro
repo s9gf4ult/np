@@ -9,4 +9,8 @@ INCLUDEPATH += .
 
 # Input
 HEADERS += Candle.h CandlesVector.h Common.h 
-SOURCES += Candle.cpp CandlesVector.cpp
+SOURCES += Candle.cpp CandlesVector.cpp Main.cpp
+
+
+QMAKE_CXXFLAGS_DEBUG += -pg
+QMAKE_LFLAGS_DEBUG += -pg

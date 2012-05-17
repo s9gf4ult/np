@@ -1,10 +1,10 @@
 #ifndef CANDLESVECTOR_H
 #define CANDLESVECTOR_H
 
-#include <QVector>
+#include <QList>
 #include "Candle.h"
 
-class CandlesVector : public QVector<Candle> {
+class CandlesVector : public QList<Candle> {
 public:
   virtual Candle *getReduced();
 };

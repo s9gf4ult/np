@@ -1,26 +1,36 @@
 #include "Candle.h"
 #include "CandlesVector.h"
+#include <QList>
 #include <QtAlgorithms>
-#include <QVector>
-#include <algorithm>
+#include <QtGlobal>
 
 
 Candle *CandlesVector::getReduced() {
   if (this->size() > 0) {
-    qSort(*this);
-    Candle f = this->first();
-    Candle l = this->last();
-    double mx = f.getLowCost();
-    double mn = f.getHighCost();
-    QVector<Candle>::const_iterator cnd = this->begin();
-    for (; cnd != this->end(); ++cnd) {
-      mx = std::max(mx, cnd->getHighCost());
-      mn = std::min(mn, cnd->getLowCost());
-    }
+    Candle a = this->first();
+    double mx = a.getHighCost();
+    double mn = a.getLowCost();
+    double oc = a.getOpenCost();
+    double cc = a.getCloseCost();
+    QDateTime *ot = a.getOpenTime();
+    QDateTime *ct = a.getCloseTime();
     
-    return new Candle(f.getOpenCost(), l.getCloseCost(),
-                      mn, mx,
-                      f.getOpenTime(), l.getCloseTime());
+    
+    QList<Candle>::const_iterator cnd = this->begin();
+    for (; cnd != this->end(); ++cnd) {
+      mx = qMax(mx, cnd->getHighCost());
+      mn = qMin(mn, cnd->getLowCost());
+      if (*cnd->getOpenTime() < *ot) {
+        ot = cnd->getOpenTime();
+        oc = cnd->getOpenCost();
+      };
+      if (*cnd->getCloseTime() < *ct) {
+        ct = cnd->getCloseTime();
+        cc = cnd->getCloseCost();
+      }
+    };
+    
+    return new Candle(oc, cc, mn, mx, ot, ct);
   };
   return 0;
 };
