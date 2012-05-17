@@ -5,6 +5,7 @@
 #include <QtGlobal>
 #include <QList>
 #include <QLinkedList>
+#include <QVector>
 #include <iostream>
 
 Candle & randomCandle(const QDateTime &dt) {
@@ -27,10 +28,10 @@ Candle & randomCandle(const QDateTime &dt) {
 
 int main (int argc, char **argv) {
   QDateTime dt = QDateTime::currentDateTime();
-  QLinkedList<Candle> vct;
+  QVector<QSharedPointer<Candle> > vct;
   int i;
   for (i = 0; i < 1000000; i++) {
-    vct.append(randomCandle(dt));
+    vct.append(QSharedPointer<Candle>(&randomCandle(dt)));
   }
 
   QSharedPointer<Candle> cnd = QSharedPointer<Candle>(reduceCandleCollection(vct));
