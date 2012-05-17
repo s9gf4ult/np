@@ -8,5 +8,5 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += Candle.h CandlesVector.h Common.h DateTime.h
+HEADERS += Candle.h CandlesVector.h Common.h 
 SOURCES += Candle.cpp CandlesVector.cpp

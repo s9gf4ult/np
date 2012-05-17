@@ -6,7 +6,7 @@
 
 class CandlesVector : public QVector<Candle> {
 public:
-  virtual Candle &getReduced();
+  virtual Candle *getReduced();
 };
 
 #endif

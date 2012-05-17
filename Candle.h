@@ -2,24 +2,25 @@
 #define CANDLE_H
 
 #include <QObject>
-#include "DateTime.h"
+#include <QDateTime>
+#include <QSharedPointer>
 
-class Candle : public QObject {
-  Q_OBJECT;
+class Candle {
   double OpenCost;
   double CloseCost;
   double LowCost;
   double HighCost;
-  DateTime *OpenTime;
-  DateTime *CloseTime;
+  QSharedPointer<QDateTime> OpenTime;
+  QSharedPointer<QDateTime> CloseTime;
  public:
-  Candle (double OpenCost, double CloseCost, double LowCost, double HighCost, DateTime *OpenTime, DateTime *CloseTime);
+  Candle (double OpenCost, double CloseCost, double LowCost, double HighCost, QDateTime *OpenTime, QDateTime *CloseTime);
+  Candle ();
   virtual double getOpenCost() const;
   virtual double getCloseCost() const;
   virtual double getLowCost() const;
   virtual double getHighCost() const;
-  virtual DateTime *getOpenTime() const;
-  virtual DateTime *getCloseTime() const;
+  virtual QDateTime *getOpenTime() const;
+  virtual QDateTime *getCloseTime() const;
   virtual bool isValid() const;
   virtual int compare(const Candle&) const;
   virtual bool operator>(const Candle &) const;
@@ -27,7 +28,6 @@ class Candle : public QObject {
   virtual bool operator==(const Candle &) const;
   virtual bool operator<=(const Candle &) const;
   virtual bool operator<(const Candle &) const;
-  
 };
   
 

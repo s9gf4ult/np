@@ -1,11 +1,9 @@
 #include "Candle.h"
 #include "Common.h"
-#include "DateTime.h"
+#include <QDateTime>
 
-Candle::Candle (double OpenCost, double CloseCost, double LowCost, double HighCost, DateTime *OpenTime, DateTime *CloseTime):
+Candle::Candle (double OpenCost, double CloseCost, double LowCost, double HighCost, QDateTime *OpenTime, QDateTime *CloseTime):
   OpenCost(OpenCost), CloseCost(CloseCost), LowCost(LowCost), HighCost(HighCost), OpenTime(OpenTime), CloseTime(CloseTime) {
-    this->OpenTime->setParent(this);
-    this->CloseTime->setParent(this);
 };
 
 double Candle::getOpenCost() const {
@@ -24,12 +22,12 @@ double Candle::getHighCost() const {
   return this->HighCost;
 };
 
-DateTime *Candle::getOpenTime() const {
-  return this->OpenTime;
+QDateTime *Candle::getOpenTime() const {
+  return this->OpenTime.data();
 };
 
-DateTime *Candle::getCloseTime() const {
-  return this->CloseTime;
+QDateTime *Candle::getCloseTime() const {
+  return this->CloseTime.data();
 };
 
 bool Candle::isValid() const {
