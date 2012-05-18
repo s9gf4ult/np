@@ -12,5 +12,5 @@ HEADERS += Candle.h Common.h
 SOURCES += Candle.cpp Main.cpp
 
 
-QMAKE_CXXFLAGS_DEBUG += -pg
-QMAKE_LFLAGS_DEBUG += -pg
+QMAKE_CXXFLAGS_DEBUG += -pg -g3
+QMAKE_LFLAGS_DEBUG += -pg -g3

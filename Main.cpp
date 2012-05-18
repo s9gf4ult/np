@@ -30,7 +30,7 @@ int main (int argc, char **argv) {
   QDateTime dt = QDateTime::currentDateTime();
   QVector<QSharedPointer<Candle> > vct;
   int i;
-  for (i = 0; i < 1000000; i++) {
+  for (i = 0; i < 1000; i++) {
     vct.append(QSharedPointer<Candle>(&randomCandle(dt)));
   }
 
