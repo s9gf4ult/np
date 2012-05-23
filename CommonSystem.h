@@ -29,8 +29,10 @@ class CommonSystem : QObject {
    * \param period The Period description
    * \param begin The datetime of the begining of the range of candles to return
    * \param end The datetime of the end of range
+   * \note
+   * returned QList must be destroyed by caller
    */
-  virtual QList<Candle&> & getCandles(const QString &ticket, const TimePeriod &period, const QDateTime &begin, const QDateTime &end) = 0;
+  virtual QList<Candle> & getCandles(const QString &ticket, const TimePeriod &period, const QDateTime &begin, const QDateTime &end) = 0;
 
   /**Subscribe to changes of concrete ticket
    */
