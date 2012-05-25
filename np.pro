@@ -8,8 +8,8 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += Candle.h Common.h 
-SOURCES += Candle.cpp Main.cpp
+HEADERS += Candle.h Common.h CommonSystem.h CommonBot.h SystemSimulator.h TimePeriod.h
+SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp
 
 
 QMAKE_CXXFLAGS_DEBUG += -pg -g3

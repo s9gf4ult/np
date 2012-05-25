@@ -1,11 +1,12 @@
 #ifndef COMMONSYSTEM_H
 #define COMMONSYSTEM_H
 
-#include <QObject>
-#include <QList>
-#include <QString>
-#include <QDateTime>
 #include "Candle.h"
+#include "TimePeriod.h"
+#include <QDateTime>
+#include <QList>
+#include <QObject>
+#include <QString>
 
 /**Common interface to trading system, all implementations must be inherited
  * from this class.
@@ -13,7 +14,7 @@
  * Instance of successor must be translated to \ref CommonBot successor
  */
 class CommonSystem : QObject {
-  Q_OBJECT
+  Q_OBJECT;
   public:
   /**Return list of tickets.
    * Each ticket is just a name as QString.
@@ -21,7 +22,7 @@ class CommonSystem : QObject {
    * \note
    * QList must be destroyed by caller
    */
-  virtual QList<QString> & getTicketsList() = 0;
+  virtual QList<QString> * getTicketsList() const = 0;
   
   /**Return list of candles
    *
@@ -32,7 +33,7 @@ class CommonSystem : QObject {
    * \note
    * returned QList must be destroyed by caller
    */
-  virtual QList<Candle> & getCandles(const QString &ticket, const TimePeriod &period, const QDateTime &begin, const QDateTime &end) = 0;
+  virtual QList<Candle> *getCandles(const QString &ticket, const TimePeriod &period, const QDateTime &begin, const QDateTime &end) const = 0;
 
   /**Subscribe to changes of concrete ticket
    */
@@ -47,7 +48,7 @@ class CommonSystem : QObject {
    * \note
    * QList must be destroyed by caller
    */
-  virtual QList<QString> & getSubscripted() = 0;
+  virtual QList<QString> * getSubscripted() const = 0;
 };
   
 
