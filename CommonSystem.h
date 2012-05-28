@@ -16,6 +16,7 @@
 class CommonSystem : QObject {
   Q_OBJECT;
   public:
+  
   /**Return list of tickets.
    * Each ticket is just a name as QString.
    *
@@ -49,6 +50,10 @@ class CommonSystem : QObject {
    * QList must be destroyed by caller
    */
   virtual QList<QString> * getSubscripted() const = 0;
+
+signals:
+  void newData() = 0;
+  
 };
   
 
