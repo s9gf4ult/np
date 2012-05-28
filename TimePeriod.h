@@ -2,6 +2,8 @@
 #define TIMEPERIOD_H
 
 class TimePeriod {              // dummy for now
+  
+ private:
   int dubby;
 }; 
 

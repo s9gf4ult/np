@@ -20,26 +20,26 @@ int cmp(const T &a, const T &b) {
 template <typename T>
 Candle *reduceCandleCollection(const T &collection){
   if (collection.size() > 0) {
-    Candle a = *collection.first();
+    Candle a = collection.first();
     double mx = a.getHighCost();
     double mn = a.getLowCost();
     double oc = a.getOpenCost();
     double cc = a.getCloseCost();
-    QDateTime *ot = a.getOpenTime();
-    QDateTime *ct = a.getCloseTime();
+    QDateTime ot = a.getOpenTime();
+    QDateTime ct = a.getCloseTime();
     
     
     typename T::const_iterator cnd = collection.begin();
     for (; cnd != collection.end(); ++cnd) {
-      mx = qMax(mx, (*cnd)->getHighCost());
-      mn = qMin(mn, (*cnd)->getLowCost());
-      if (*(*cnd)->getOpenTime() < *ot) {
-        ot = (*cnd)->getOpenTime();
-        oc = (*cnd)->getOpenCost();
+      mx = qMax(mx, cnd->getHighCost());
+      mn = qMin(mn, cnd->getLowCost());
+      if (cnd->getOpenTime() < ot) {
+        ot = cnd->getOpenTime();
+        oc = cnd->getOpenCost();
       };
-      if (*(*cnd)->getCloseTime() < *ct) {
-        ct = (*cnd)->getCloseTime();
-        cc = (*cnd)->getCloseCost();
+      if (cnd->getCloseTime() < ct) {
+        ct = cnd->getCloseTime();
+        cc = cnd->getCloseCost();
       }
     };
     

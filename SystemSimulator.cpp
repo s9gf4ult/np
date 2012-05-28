@@ -22,6 +22,6 @@ QList<Candle> * SystemSimulator::getCandles(const QString &ticket,
 }
 
 void SystemSimulator::subscribe(const QString &ticket) {
-  
+}
 
   

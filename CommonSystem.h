@@ -3,6 +3,7 @@
 
 #include "Candle.h"
 #include "TimePeriod.h"
+#include "Tick.h"
 #include <QDateTime>
 #include <QList>
 #include <QObject>
@@ -52,7 +53,8 @@ class CommonSystem : QObject {
   virtual QList<QString> * getSubscripted() const = 0;
 
 signals:
-  void newData() = 0;
+  virtual void newData(QList<Candle> &) = 0;
+  virtual void newData(QList<Tick> &) = 0;
   
 };
   
