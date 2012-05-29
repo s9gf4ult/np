@@ -1,10 +1,10 @@
 #ifndef TIMEPERIOD_H
 #define TIMEPERIOD_H
 
-class TimePeriod {              // dummy for now
-  
- private:
-  int dubby;
-}; 
+class TimePeriod {
+public:
+  virtual QDateTime &getNextTime(const QDateTime &) const;
+  virtual QDateTime &getPrevTime(const QDateTime &) const;
+};
 
 #endif
