@@ -17,6 +17,9 @@
 class CommonSystem : QObject {
   Q_OBJECT;
  public:
+  /**Virtual destructor can be overwritten
+   */
+  virtual ~CommonSystem() {};
   
   /**Return list of tickets.
    * Each ticket is just a name as QString.

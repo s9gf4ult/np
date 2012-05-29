@@ -10,7 +10,7 @@ INCLUDEPATH += .
 # Input
 HEADERS += Candle.h Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
            TimePeriod.h CommonError.h ValueError.h Tick.h
-SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp
+SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp Tick.cpp
 
 
 QMAKE_CXXFLAGS_DEBUG += -pg -g3

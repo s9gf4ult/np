@@ -9,23 +9,29 @@
 
 class Candle {
  public:
+  enum CandleColor
+    {RED = -1,
+     GRAY = 0,
+     GREEN = 1};
+  
   Candle (double OpenCost, double CloseCost, double LowCost, double HighCost, QDateTime &OpenTime, QDateTime &CloseTime);
   Candle ();
   virtual ~Candle() {};
+  virtual CandleColor getColor() const;
   virtual double getOpenCost() const;
-  virtual void setOpenCost(double) throw(ValueError);
+  virtual Candle &setOpenCost(double) throw(ValueError);
   virtual double getCloseCost() const;
-  virtual void setCloseCost(double) throw(ValueError);
+  virtual Candle &setCloseCost(double) throw(ValueError);
   virtual double getLowCost() const;
-  virtual void setLowCost(double) throw(ValueError);
+  virtual Candle &setLowCost(double) throw(ValueError);
   virtual double getHighCost() const;
-  virtual void setHighCost(double) throw(ValueError);
+  virtual Candle &setHighCost(double) throw(ValueError);
   virtual const QDateTime &getOpenTime() const;
-  virtual void setOpenTime(const QDateTime &) throw(ValueError);
+  virtual Candle &setOpenTime(const QDateTime &) throw(ValueError);
   virtual const QDateTime &getCloseTime() const;
-  virtual void setCloseTime(const QDateTime &) throw(ValueError);
+  virtual Candle &setCloseTime(const QDateTime &) throw(ValueError);
   virtual double getVolume() const;
-  virtual void setVolume(double) throw(ValueError);
+  virtual Candle &setVolume(double) throw(ValueError);
   virtual bool isValid() const;
   virtual int compare(const Candle&) const;
   virtual bool operator>(const Candle &) const;
