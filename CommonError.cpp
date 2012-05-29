@@ -1,13 +1,11 @@
 #include "CommonError.h"
 #include <QString>
 
-CommonError::CommonError(const QString &msg) : Message(msg) {
+CommonError &CommonError::setMessage(const QString &msg) {
+  Message = msg;
+  return *this;
 };
 
-CommonError::CommonError(const char *msg) : Message(msg) {
-};
-
-
-QString &getMessage() const {
+const QString &CommonError::getMessage() const {
   return this->Message;
-}
+};

@@ -9,7 +9,7 @@ INCLUDEPATH += .
 
 # Input
 HEADERS += Candle.h Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
-           TimePeriod.h CommonError.h ValueError.h
+           TimePeriod.h CommonError.h ValueError.h Tick.h
 SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp
 
 

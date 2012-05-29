@@ -11,6 +11,7 @@ class Candle {
  public:
   Candle (double OpenCost, double CloseCost, double LowCost, double HighCost, QDateTime &OpenTime, QDateTime &CloseTime);
   Candle ();
+  virtual ~Candle() {};
   virtual double getOpenCost() const;
   virtual void setOpenCost(double) throw(ValueError);
   virtual double getCloseCost() const;
@@ -19,9 +20,9 @@ class Candle {
   virtual void setLowCost(double) throw(ValueError);
   virtual double getHighCost() const;
   virtual void setHighCost(double) throw(ValueError);
-  virtual QDateTime &getOpenTime() const;
+  virtual const QDateTime &getOpenTime() const;
   virtual void setOpenTime(const QDateTime &) throw(ValueError);
-  virtual QDateTime &getCloseTime() const;
+  virtual const QDateTime &getCloseTime() const;
   virtual void setCloseTime(const QDateTime &) throw(ValueError);
   virtual double getVolume() const;
   virtual void setVolume(double) throw(ValueError);

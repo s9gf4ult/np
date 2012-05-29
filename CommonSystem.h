@@ -16,7 +16,7 @@
  */
 class CommonSystem : QObject {
   Q_OBJECT;
-  public:
+ public:
   
   /**Return list of tickets.
    * Each ticket is just a name as QString.
@@ -53,8 +53,8 @@ class CommonSystem : QObject {
   virtual QList<QString> * getSubscripted() const = 0;
 
 signals:
-  virtual void newData(QList<Candle> &) = 0;
-  virtual void newData(QList<Tick> &) = 0;
+  void newData(QList<Candle> &);
+  void newData(QList<Tick> &);
   
 };
   

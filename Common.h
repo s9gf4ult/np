@@ -5,6 +5,13 @@
 #include <QtAlgorithms>
 #include <QtGlobal>
 
+#define THROW(cls,msg)                          \
+  {                                             \
+  cls err;                                      \
+  err.setMessage(msg);                          \
+  throw(err);                                   \
+  };
+
 
 template <typename T>
 int cmp(const T &a, const T &b) {

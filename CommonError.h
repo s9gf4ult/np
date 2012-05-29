@@ -5,11 +5,11 @@
 
 class CommonError {
 public:
-  CommonError(const QString &);
-  CommonError(const char *);
   virtual ~CommonError() {};
-  virtual QString &getMessage() const;
+  virtual const QString &getMessage() const;
+  virtual CommonError &setMessage(const QString&);
 private:
   QString Message;
-#endif
 };
+
+#endif
