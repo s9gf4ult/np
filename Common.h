@@ -9,6 +9,10 @@
  */
 void mSecsToZero(QDateTime *);
 
+/** Set Seconds and MSeconds to zero
+ */
+void secsToZero(QDateTime *);
+
 
 template <typename T>
 int cmp(const T &a, const T &b) {
