@@ -5,12 +5,9 @@
 #include <QtAlgorithms>
 #include <QtGlobal>
 
-#define THROW(cls,msg)                          \
-  {                                             \
-  cls err;                                      \
-  err.setMessage(msg);                          \
-  throw(err);                                   \
-  };
+/** Set MSecs of QDateTime to zero
+ */
+void mSecsToZero(QDateTime *);
 
 
 template <typename T>
