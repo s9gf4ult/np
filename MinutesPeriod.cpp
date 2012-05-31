@@ -11,7 +11,7 @@ QDateTime MinutesPeriod::getNextTime(const QDateTime &qdt) const {
   QDateTime ret = qdt;
   secsToZero(&ret);
   int minute = ret.time().minute();
-  int val = static_cast<int>(Value);
+  int val = static_cast<int>(getValue());
   int append = val - (minute % val);
   return ret.addSecs(append * 60);
 };
@@ -20,7 +20,7 @@ QDateTime MinutesPeriod::getPrevTime(const QDateTime &qdt) const {
   QDateTime ret = qdt;
   secsToZero(&ret);
   int minute = ret.time().minute();
-  int val = static_cast<int>(Value);
+  int val = static_cast<int>(getValue());
   int append = (minute % val);
   append = 0 == append ? val : append;
   return ret.addSecs(-(append * 60));

@@ -7,7 +7,7 @@
 class MinutesPeriod : public TimePeriod {
 public:
   MinutesPeriod();
-  MinutesPeriod(Multiple60);
+  explicit MinutesPeriod(Multiple60);
   virtual ~MinutesPeriod() {};
   virtual QDateTime getNextTime(const QDateTime &) const;
   virtual QDateTime getPrevTime(const QDateTime &) const;

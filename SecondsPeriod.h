@@ -9,7 +9,7 @@
 class SecondsPeriod : public TimePeriod {
 public:
   SecondsPeriod();
-  SecondsPeriod(Multiple60);
+  explicit SecondsPeriod(Multiple60);
   virtual ~SecondsPeriod() {};
   virtual QDateTime getNextTime(const QDateTime &) const;
   virtual QDateTime getPrevTime(const QDateTime &) const;

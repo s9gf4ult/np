@@ -14,7 +14,7 @@ QDateTime SecondsPeriod::getNextTime(const QDateTime &qdt) const {
   QDateTime newd = qdt;
   mSecsToZero(&newd);
   int second = newd.time().second();
-  int val = static_cast<int>(Value);
+  int val = static_cast<int>(getValue());
   int append = val - (second % val);
   return newd.addSecs(append);
 };
@@ -23,7 +23,7 @@ QDateTime SecondsPeriod::getPrevTime(const QDateTime &qdt) const {
   QDateTime newd = qdt;
   mSecsToZero(&newd);
   int second = newd.time().second();
-  int val = static_cast<int>(Value);
+  int val = static_cast<int>(getValue());
   int append = second % val;
   append = 0 == append ? Value : append;
   return newd.addSecs(-append);

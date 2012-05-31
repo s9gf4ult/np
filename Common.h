@@ -13,6 +13,11 @@ void mSecsToZero(QDateTime *);
  */
 void secsToZero(QDateTime *);
 
+/** Set MSecs, Secs and Munute to zero
+    in given QDateTime
+*/
+void minuteSetZero(QDateTime *);
+
 
 template <typename T>
 int cmp(const T &a, const T &b) {
