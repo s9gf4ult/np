@@ -1,6 +1,6 @@
 #include "DayPeriod.h"
-#include <QDateTime>
 #include <QDate>
+#include <QDateTime>
 #include <QTime>
 
 DayPeriod::DayPeriod() :
