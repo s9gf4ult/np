@@ -1,4 +1,5 @@
 #include "MinutesPeriod.h"
+#include "Common.h"
 
 MinutesPeriod::MinutesPeriod() :
   Value(M60V1) {

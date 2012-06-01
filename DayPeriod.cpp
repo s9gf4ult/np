@@ -8,7 +8,7 @@ DayPeriod::DayPeriod() :
   ControlPoint(QDateTime(QDate(1900, 1, 1), QTime(0, 0))) {
 };
 
-DayPeriod::DayPeriod(const QDateTime &qdt, int value) : Value(val), ControlPoint(qdt) {
+DayPeriod::DayPeriod(const QDateTime &qdt, int value) : Value(value), ControlPoint(qdt) {
 };
 
 QDateTime DayPeriod::getNextTime(const QDateTime &qdt) const {
@@ -40,10 +40,21 @@ void DayPeriod::accept(PeriodVisitor *visitor) {
 DayPeriod & DayPeriod::setValue(int val) {
   Value = val;
   return *this;
-};
+}
 
-DayPeriod & DayPeriod::setControlPoint(QDateTime &qdt) {
+int DayPeriod::getValue() const
+{
+    return this->Value;
+}
+
+DayPeriod & DayPeriod::setControlPoint(const QDateTime &qdt) {
   ControlPoint = qdt;
   return *this;
-};
+}
+
+const QDateTime &DayPeriod::getControlPoint() const
+{
+    return this->ControlPoint;
+}
+
 

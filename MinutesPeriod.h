@@ -4,11 +4,12 @@
 #include "TimePeriod.h"
 #include "Multiple60.h"
 
-class MinutesPeriod : public TimePeriod {
+class MinutesPeriod : public TimePeriod
+{
 public:
   MinutesPeriod();
   explicit MinutesPeriod(Multiple60);
-  virtual ~MinutesPeriod() {};
+  virtual ~MinutesPeriod() {}
   virtual QDateTime getNextTime(const QDateTime &) const;
   virtual QDateTime getPrevTime(const QDateTime &) const;
   virtual void accept(PeriodVisitor *);

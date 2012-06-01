@@ -1,9 +1,12 @@
 #ifndef TIMEPERIOD_H
 #define TIMEPERIOD_H
 
-#include "PeriodVisitor.h"
+#include <QDateTime>
 
-class TimePeriod {
+class PeriodVisitor;
+
+class TimePeriod
+{
 public:
   /** Return pointer to QDateTime with next multiple time according to
       given time.
@@ -16,5 +19,7 @@ public:
   virtual QDateTime getPrevTime(const QDateTime &) const = 0;
   virtual void accept(PeriodVisitor *) = 0;
 };
+
+#include "PeriodVisitor.h"
 
 #endif
