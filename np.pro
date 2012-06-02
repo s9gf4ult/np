@@ -17,14 +17,16 @@ HEADERS += Candle.h Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
     HourPeriod.h \
     DayPeriod.h \
     PeriodVisitor.h \
-    MonthPeriod.h
+    MonthPeriod.h \
+    YearPeriod.h
 SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp Tick.cpp \
     SecondsPeriod.cpp \
     MinutesPeriod.cpp \
     HourPeriod.cpp \
     DayPeriod.cpp \
     Common.cpp \
-    MonthPeriod.cpp
+    MonthPeriod.cpp \
+    YearPeriod.cpp
 
 
 QMAKE_CXXFLAGS_DEBUG += -pg -g3
