@@ -3,8 +3,9 @@
 
 #include "ValueError.h"
 #include <QDateTime>
+#include "AbstractCandle.h"
 
-class Tick {
+class Tick : public AbstractCandle {
 public:
   Tick(const QDateTime &, double cost, double volume);
   Tick();
@@ -15,6 +16,12 @@ public:
   virtual double getCost() const;
   virtual Tick &setTime(const QDateTime &);
   virtual const QDateTime &getDateTime() const;
+  virtual double getOpenCost() const;
+  virtual double getCloseCost() const;
+  virtual double getLowCost() const;
+  virtual double getHighCost() const;
+  virtual const QDateTime &getOpenTime() const;
+  virtual const QDateTime &getCloseTime() const;
 
 private:
   double Volume;

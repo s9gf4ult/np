@@ -5,16 +5,17 @@
 #include <QDateTime>
 #include <QObject>
 #include <QSharedPointer>
+#include "AbstractCandle.h"
 
 
-class Candle {
+class Candle : public AbstractCandle {
  public:
   enum CandleColor
     {RED = -1,
      GRAY = 0,
      GREEN = 1};
   
-  Candle (double OpenCost, double CloseCost, double LowCost, double HighCost, QDateTime &OpenTime, QDateTime &CloseTime);
+  Candle (double OpenCost, double CloseCost, double LowCost, double HighCost, double Volume, QDateTime &OpenTime, QDateTime &CloseTime);
   Candle ();
   virtual ~Candle() {};
   virtual CandleColor getColor() const;

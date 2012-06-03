@@ -2,11 +2,11 @@
 
 Tick::Tick(const QDateTime &dt, double cost, double volume):
   Volume(volume), Cost(cost), Time(dt) {
-};
+}
 
 Tick::Tick():
   Volume(0), Cost(0) {
-};
+}
 
 Tick &Tick::setVolume(double volume) throw(ValueError){
   if (volume <= 0) {
@@ -15,11 +15,11 @@ Tick &Tick::setVolume(double volume) throw(ValueError){
     Volume = volume;
   }
   return *this;
-};
+}
 
 double Tick::getVolume() const {
   return Volume;
-};
+}
 
 Tick &Tick::setCost(double cost) throw(ValueError) {
   if (cost <= 0) {
@@ -28,11 +28,11 @@ Tick &Tick::setCost(double cost) throw(ValueError) {
     Cost = cost;
   };
   return *this;
-};
+}
 
 double Tick::getCost() const {
   return Cost;
-};
+}
 
 Tick &Tick::setTime(const QDateTime &qdt) {
   Time = qdt;
@@ -41,4 +41,28 @@ Tick &Tick::setTime(const QDateTime &qdt) {
 
 const QDateTime &Tick::getDateTime() const {
   return Time;
-};
+}
+
+double Tick::getOpenCost() const {
+    return getCost();
+}
+
+double Tick::getCloseCost() const {
+    return getCost();
+}
+
+double Tick::getLowCost() const {
+    return getCost();
+}
+
+double Tick::getHighCost() const {
+    return getCost();
+}
+
+const QDateTime &Tick::getOpenTime() const {
+    return getDateTime();
+}
+
+const QDateTime &Tick::getCloseTime() const {
+    return getDateTime();
+}

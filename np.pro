@@ -18,7 +18,8 @@ HEADERS += Candle.h Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
     DayPeriod.h \
     PeriodVisitor.h \
     MonthPeriod.h \
-    YearPeriod.h
+    YearPeriod.h \
+    AbstractCandle.h
 SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp Tick.cpp \
     SecondsPeriod.cpp \
     MinutesPeriod.cpp \

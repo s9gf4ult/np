@@ -3,8 +3,20 @@
 #include "ValueError.h"
 #include <QDateTime>
 
-Candle::Candle (double OpenCost, double CloseCost, double LowCost, double HighCost, QDateTime &OpenTime, QDateTime &CloseTime):
-  OpenCost(OpenCost), CloseCost(CloseCost), LowCost(LowCost), HighCost(HighCost), OpenTime(OpenTime), CloseTime(CloseTime) {
+Candle::Candle (double OpenCost,
+                double CloseCost,
+                double LowCost,
+                double HighCost,
+                double Volume,
+                QDateTime &OpenTime,
+                QDateTime &CloseTime):
+    OpenCost(OpenCost),
+    CloseCost(CloseCost),
+    LowCost(LowCost),
+    HighCost(HighCost),
+    Volume(Volume),
+    OpenTime(OpenTime),
+    CloseTime(CloseTime) {
 };
 
 Candle::Candle() : OpenCost(0), CloseCost(0), LowCost(0), HighCost(0) {
