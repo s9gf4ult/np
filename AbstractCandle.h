@@ -2,6 +2,7 @@
 #define ABSTRACTCANDLE_H
 
 #include <QDateTime>
+#include "CandleVisitor.h"
 
 class AbstractCandle
 {
@@ -13,6 +14,7 @@ public:
     virtual double getVolume() const = 0;
     virtual const QDateTime &getOpenTime() const = 0;
     virtual const QDateTime &getCloseTime() const = 0;
+    virtual void accept(CandleVisitor *) = 0;
 };
 
 #endif // ABSTRACTCANDLE_H

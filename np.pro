@@ -19,7 +19,10 @@ HEADERS += Candle.h Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
     PeriodVisitor.h \
     MonthPeriod.h \
     YearPeriod.h \
-    AbstractCandle.h
+    AbstractCandle.h \
+    CandleVisitor.h \
+    AbstractHistorySource.h \
+    PointersList.h
 SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp Tick.cpp \
     SecondsPeriod.cpp \
     MinutesPeriod.cpp \

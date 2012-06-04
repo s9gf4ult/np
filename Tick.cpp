@@ -66,3 +66,8 @@ const QDateTime &Tick::getOpenTime() const {
 const QDateTime &Tick::getCloseTime() const {
     return getDateTime();
 }
+
+void Tick::accept(CandleVisitor *visitor)
+{
+    visitor->visit(this);
+}

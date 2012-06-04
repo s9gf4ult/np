@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QSharedPointer>
 #include "AbstractCandle.h"
+#include "CandleVisitor.h"
 
 
 class Candle : public AbstractCandle {
@@ -40,6 +41,7 @@ class Candle : public AbstractCandle {
   virtual bool operator==(const Candle &) const;
   virtual bool operator<=(const Candle &) const;
   virtual bool operator<(const Candle &) const;
+  virtual void accept(CandleVisitor *);
 private:
   double OpenCost;
   double CloseCost;

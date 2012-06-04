@@ -157,7 +157,12 @@ bool Candle::operator<=(const Candle &a) const {
 }
 
 bool Candle::operator<(const Candle &a) const {
-  return this->compare(a) < 0;
+    return this->compare(a) < 0;
+}
+
+void Candle::accept(CandleVisitor *visitor)
+{
+    visitor->visit(this);
 }
 
 Candle::CandleColor Candle::getColor() const {

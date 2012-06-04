@@ -19,11 +19,4 @@ public:
     virtual void visit(YearPeriod *) = 0;
 };
 
-#include "SecondsPeriod.h"
-#include "MinutesPeriod.h"
-#include "HourPeriod.h"
-#include "DayPeriod.h"
-#include "MonthPeriod.h"
-#include "YearPeriod.h"
-
 #endif // PERIODVISITOR_H
