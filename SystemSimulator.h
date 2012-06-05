@@ -1,7 +1,7 @@
 #ifndef SYSTEMSIMULATOR_H
 #define SYSTEMSIMULATOR_H
 
-#include "Candle.h"
+#include "SimpleCandle.h"
 #include "CommonSystem.h"
 #include "TimePeriod.h"
 #include <QList>

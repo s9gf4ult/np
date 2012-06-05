@@ -1,4 +1,4 @@
-#include "Candle.h"
+#include "SimpleCandle.h"
 #include "Common.h"
 #include "ValueError.h"
 #include <QDateTime>

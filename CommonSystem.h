@@ -1,9 +1,9 @@
 #ifndef COMMONSYSTEM_H
 #define COMMONSYSTEM_H
 
-#include "Candle.h"
+#include "SimpleCandle.h"
 #include "TimePeriod.h"
-#include "Tick.h"
+#include "SimpleTick.h"
 #include <QDateTime>
 #include <QList>
 #include <QObject>

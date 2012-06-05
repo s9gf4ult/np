@@ -3,7 +3,7 @@
 
 #include <QList>
 #include <QString>
-#include "Candle.h"
+#include "SimpleCandle.h"
 #include "AbstractCandle.h"
 #include "TimePeriod.h"
 

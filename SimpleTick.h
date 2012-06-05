@@ -1,5 +1,5 @@
-#ifndef TICK_H
-#define TICK_H
+#ifndef SIMPLETICK_H
+#define SIMPLETICK_H
 
 #include "ValueError.h"
 #include <QDateTime>

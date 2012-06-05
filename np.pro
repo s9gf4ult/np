@@ -8,8 +8,8 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += Candle.h Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
-           TimePeriod.h CommonError.h ValueError.h Tick.h \
+HEADERS += Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
+           TimePeriod.h CommonError.h ValueError.h \
     SecondsPeriod.h \
     Multiple60.h \
     Multiple24.h \
@@ -23,8 +23,11 @@ HEADERS += Candle.h Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
     CandleVisitor.h \
     AbstractHistorySource.h \
     PointersList.h \
-#    CSVHistorySource.h
-SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp Tick.cpp \
+    CSVHistorySource.h \
+    SimpleTick.h \
+    SimpleCandle.h \
+    Candle.h
+SOURCES += Main.cpp SystemSimulator.cpp CommonError.cpp \
     SecondsPeriod.cpp \
     MinutesPeriod.cpp \
     HourPeriod.cpp \
@@ -32,7 +35,9 @@ SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp Tick.cpp \
     Common.cpp \
     MonthPeriod.cpp \
     YearPeriod.cpp \
-#    CVHistorySource.cpp
+    CVHistorySource.cpp \
+    SimpleTick.cpp \
+    SimpleCandle.cpp
 
 
 QMAKE_CXXFLAGS_DEBUG += -pg -g3

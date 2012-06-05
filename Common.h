@@ -1,7 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#include "Candle.h"
+#include "SimpleCandle.h"
 #include "AbstractCandle.h"
 #include <QtAlgorithms>
 #include <QtGlobal>

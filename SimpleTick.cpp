@@ -1,4 +1,4 @@
-#include "Tick.h"
+#include "SimpleTick.h"
 
 SimpleTick::SimpleTick(const QDateTime &dt, double cost, double volume):
   Volume(volume), Cost(cost), Time(dt) {
