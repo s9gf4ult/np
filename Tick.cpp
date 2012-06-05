@@ -71,3 +71,11 @@ void Tick::accept(CandleVisitor *visitor)
 {
     visitor->visit(this);
 }
+
+QString Tick::toString()
+{
+    return QString("Tick with time: %1, cost: %2, volume: %3")
+            .arg(this->getDateTime().toString())
+            .arg(this->getCost())
+            .arg(this->getVolume());
+}

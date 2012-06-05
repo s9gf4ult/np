@@ -15,6 +15,7 @@ public:
     virtual const QDateTime &getOpenTime() const = 0;
     virtual const QDateTime &getCloseTime() const = 0;
     virtual void accept(CandleVisitor *) = 0;
+    virtual QString toString() = 0;
 };
 
 #endif // ABSTRACTCANDLE_H

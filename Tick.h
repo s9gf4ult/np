@@ -24,6 +24,7 @@ public:
   virtual const QDateTime &getOpenTime() const;
   virtual const QDateTime &getCloseTime() const;
   virtual void accept(CandleVisitor *visitor);
+  virtual QString toString();
 private:
   double Volume;
   double Cost;

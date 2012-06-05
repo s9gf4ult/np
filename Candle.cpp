@@ -165,6 +165,18 @@ void Candle::accept(CandleVisitor *visitor)
     visitor->visit(this);
 }
 
+QString Candle::toString()
+{
+    return QString("Candle, open time: %1, close time %2, open cost: %3, close cost: %4, highest cost: %5, lowest cost: %6, volume: %7")
+            .arg(this->getOpenTime().toString())
+            .arg(this->getCloseTime().toString())
+            .arg(this->getOpenCost())
+            .arg(this->getCloseCost())
+            .arg(this->getHighCost())
+            .arg(this->getLowCost())
+            .arg(this->getVolume());
+}
+
 Candle::CandleColor Candle::getColor() const {
   if (CloseCost > LowCost)
     return GREEN;

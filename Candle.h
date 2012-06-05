@@ -42,6 +42,7 @@ class Candle : public AbstractCandle {
   virtual bool operator<=(const Candle &) const;
   virtual bool operator<(const Candle &) const;
   virtual void accept(CandleVisitor *);
+  virtual QString toString();
 private:
   double OpenCost;
   double CloseCost;
