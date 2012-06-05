@@ -32,7 +32,7 @@ int cmp(const T &a, const T &b) {
 }
 
 template <typename T>
-Candle *reduceCandleCollection(T *collection){
+SimpleCandle *reduceCandleCollection(T *collection){
   if (collection->size() > 0) {
     AbstractCandle *a = collection->first();
     double mx = a->getHighCost();
@@ -59,7 +59,7 @@ Candle *reduceCandleCollection(T *collection){
       }
     };
     
-    return new Candle(oc, cc, mn, mx, volume, ot, ct);
+    return new SimpleCandle(oc, cc, mn, mx, volume, ot, ct);
   };
   return 0;
 };

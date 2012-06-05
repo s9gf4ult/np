@@ -1,14 +1,14 @@
 #include "Tick.h"
 
-Tick::Tick(const QDateTime &dt, double cost, double volume):
+SimpleTick::SimpleTick(const QDateTime &dt, double cost, double volume):
   Volume(volume), Cost(cost), Time(dt) {
 }
 
-Tick::Tick():
+SimpleTick::SimpleTick():
   Volume(0), Cost(0) {
 }
 
-Tick &Tick::setVolume(double volume) throw(ValueError){
+SimpleTick &SimpleTick::setVolume(double volume) throw(ValueError){
   if (volume <= 0) {
     throw(ValueError().setMessage("Volume of tick must be grather than 0"));
   } else {
@@ -17,11 +17,11 @@ Tick &Tick::setVolume(double volume) throw(ValueError){
   return *this;
 }
 
-double Tick::getVolume() const {
+double SimpleTick::getVolume() const {
   return Volume;
 }
 
-Tick &Tick::setCost(double cost) throw(ValueError) {
+SimpleTick &SimpleTick::setCost(double cost) throw(ValueError) {
   if (cost <= 0) {
     throw(ValueError().setMessage("Cost of tick must be grather than 0"));
   } else {
@@ -30,49 +30,49 @@ Tick &Tick::setCost(double cost) throw(ValueError) {
   return *this;
 }
 
-double Tick::getCost() const {
+double SimpleTick::getCost() const {
   return Cost;
 }
 
-Tick &Tick::setTime(const QDateTime &qdt) {
+SimpleTick &SimpleTick::setTime(const QDateTime &qdt) {
   Time = qdt;
   return *this;
 }
 
-const QDateTime &Tick::getDateTime() const {
+const QDateTime &SimpleTick::getDateTime() const {
   return Time;
 }
 
-double Tick::getOpenCost() const {
+double SimpleTick::getOpenCost() const {
     return getCost();
 }
 
-double Tick::getCloseCost() const {
+double SimpleTick::getCloseCost() const {
     return getCost();
 }
 
-double Tick::getLowCost() const {
+double SimpleTick::getLowCost() const {
     return getCost();
 }
 
-double Tick::getHighCost() const {
+double SimpleTick::getHighCost() const {
     return getCost();
 }
 
-const QDateTime &Tick::getOpenTime() const {
+const QDateTime &SimpleTick::getOpenTime() const {
     return getDateTime();
 }
 
-const QDateTime &Tick::getCloseTime() const {
+const QDateTime &SimpleTick::getCloseTime() const {
     return getDateTime();
 }
 
-void Tick::accept(CandleVisitor *visitor)
+void SimpleTick::accept(CandleVisitor *visitor)
 {
     visitor->visit(this);
 }
 
-QString Tick::toString()
+QString SimpleTick::toString()
 {
     return QString("Tick with time: %1, cost: %2, volume: %3")
             .arg(this->getDateTime().toString())

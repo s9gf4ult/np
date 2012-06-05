@@ -3,7 +3,7 @@
 #include "ValueError.h"
 #include <QDateTime>
 
-Candle::Candle (double OpenCost,
+SimpleCandle::SimpleCandle (double OpenCost,
                 double CloseCost,
                 double LowCost,
                 double HighCost,
@@ -19,14 +19,14 @@ Candle::Candle (double OpenCost,
     CloseTime(CloseTime) {
 };
 
-Candle::Candle() : OpenCost(0), CloseCost(0), LowCost(0), HighCost(0) {
+SimpleCandle::SimpleCandle() : OpenCost(0), CloseCost(0), LowCost(0), HighCost(0) {
 };
 
-double Candle::getOpenCost() const {
+double SimpleCandle::getOpenCost() const {
   return this->OpenCost;
 };
 
-Candle & Candle::setOpenCost(double oc) throw(ValueError) {
+SimpleCandle & SimpleCandle::setOpenCost(double oc) throw(ValueError) {
   if (oc <= 0) {
     throw(ValueError().setMessage("Open cost must be grather than 0"));
   } else if (oc > HighCost || oc < LowCost) {
@@ -37,11 +37,11 @@ Candle & Candle::setOpenCost(double oc) throw(ValueError) {
   return *this;
 }
   
-double Candle::getCloseCost() const {
+double SimpleCandle::getCloseCost() const {
   return this->CloseCost;
 };
 
-Candle & Candle::setCloseCost(double cc) throw(ValueError) {
+SimpleCandle & SimpleCandle::setCloseCost(double cc) throw(ValueError) {
   if (cc <= 0) {
     throw(ValueError().setMessage("Close cost must be grather than 0"));
   } else if (cc > HighCost || cc < LowCost) {
@@ -52,11 +52,11 @@ Candle & Candle::setCloseCost(double cc) throw(ValueError) {
   return *this;
 }
 
-double Candle::getLowCost() const {
+double SimpleCandle::getLowCost() const {
   return this->LowCost;
 };
 
-Candle & Candle::setLowCost(double lc) throw(ValueError) {
+SimpleCandle & SimpleCandle::setLowCost(double lc) throw(ValueError) {
   if (lc <= 0) {
     throw(ValueError().setMessage("Low Cost must be grather than 0"));
   } else if (lc > OpenCost || lc > CloseCost || lc > HighCost) {
@@ -67,11 +67,11 @@ Candle & Candle::setLowCost(double lc) throw(ValueError) {
   return *this;
 }
 
-double Candle::getHighCost() const {
+double SimpleCandle::getHighCost() const {
   return this->HighCost;
 };
 
-Candle & Candle::setHighCost(double hc) throw(ValueError) {
+SimpleCandle & SimpleCandle::setHighCost(double hc) throw(ValueError) {
   if (hc <= 0) {
     throw(ValueError().setMessage("High Cost must be grather than 0"));
   } else if ((hc < OpenCost) || (hc < CloseCost) || (hc < LowCost)) {
@@ -83,11 +83,11 @@ Candle & Candle::setHighCost(double hc) throw(ValueError) {
 }
 
 
-const QDateTime &Candle::getOpenTime() const {
+const QDateTime &SimpleCandle::getOpenTime() const {
   return this->OpenTime;
 };
 
-Candle & Candle::setOpenTime(const QDateTime &ot) throw(ValueError) {
+SimpleCandle & SimpleCandle::setOpenTime(const QDateTime &ot) throw(ValueError) {
   if (ot > CloseTime) {
     throw(ValueError().setMessage("OpenTime is grather than CloseTime"));
   } else {
@@ -96,11 +96,11 @@ Candle & Candle::setOpenTime(const QDateTime &ot) throw(ValueError) {
   return *this;
 };
 
-const QDateTime &Candle::getCloseTime() const {
+const QDateTime &SimpleCandle::getCloseTime() const {
   return this->CloseTime;
 };
 
-Candle & Candle::setCloseTime(const QDateTime &ct) throw(ValueError) {
+SimpleCandle & SimpleCandle::setCloseTime(const QDateTime &ct) throw(ValueError) {
   if (ct < OpenTime) {
     throw(ValueError().setMessage("CloseTime is less than OpenTime"));
   } else {
@@ -109,11 +109,11 @@ Candle & Candle::setCloseTime(const QDateTime &ct) throw(ValueError) {
   return *this;
 };
 
-double Candle::getVolume() const {
+double SimpleCandle::getVolume() const {
   return this->Volume;
 };
 
-Candle & Candle::setVolume(double volume) throw(ValueError) {
+SimpleCandle & SimpleCandle::setVolume(double volume) throw(ValueError) {
   if (volume <= 0) {
     throw(ValueError().setMessage("Volume must be grather than zero"));
   } else {
@@ -123,14 +123,14 @@ Candle & Candle::setVolume(double volume) throw(ValueError) {
 };
   
 
-bool Candle::isValid() const {
+bool SimpleCandle::isValid() const {
   return ((this->getLowCost() <= this->getHighCost()) &&
           (this->getOpenCost() <= this->getHighCost()) && (this->getOpenCost() >= this->getLowCost()) &&
           (this->getCloseCost() <= this->getHighCost()) && (this->getCloseCost() >= this->getLowCost()) &&
           (this->getOpenTime() <= this->getCloseTime()));
 };
 
-int Candle::compare(const Candle& cndl) const {
+int SimpleCandle::compare(const SimpleCandle& cndl) const {
   int c1 = cmp(this->getOpenTime(), cndl.getOpenTime());
   if (c1 != 0) {
     return c1;
@@ -140,32 +140,32 @@ int Candle::compare(const Candle& cndl) const {
   return 0;
 };
 
-bool Candle::operator>(const Candle &a) const {
+bool SimpleCandle::operator>(const SimpleCandle &a) const {
   return this->compare(a) > 0;
 }
 
-bool Candle::operator>=(const Candle &a) const {
+bool SimpleCandle::operator>=(const SimpleCandle &a) const {
   return this->compare(a) >= 0;
 }
 
-bool Candle::operator==(const Candle &a) const {
+bool SimpleCandle::operator==(const SimpleCandle &a) const {
   return this->compare(a) == 0;
 }
 
-bool Candle::operator<=(const Candle &a) const {
+bool SimpleCandle::operator<=(const SimpleCandle &a) const {
   return this->compare(a) <= 0;
 }
 
-bool Candle::operator<(const Candle &a) const {
+bool SimpleCandle::operator<(const SimpleCandle &a) const {
     return this->compare(a) < 0;
 }
 
-void Candle::accept(CandleVisitor *visitor)
+void SimpleCandle::accept(CandleVisitor *visitor)
 {
     visitor->visit(this);
 }
 
-QString Candle::toString()
+QString SimpleCandle::toString()
 {
     return QString("Candle, open time: %1, close time %2, open cost: %3, close cost: %4, highest cost: %5, lowest cost: %6, volume: %7")
             .arg(this->getOpenTime().toString())
@@ -177,7 +177,7 @@ QString Candle::toString()
             .arg(this->getVolume());
 }
 
-Candle::CandleColor Candle::getColor() const {
+SimpleCandle::CandleColor SimpleCandle::getColor() const {
   if (CloseCost > LowCost)
     return GREEN;
   else if (CloseCost == LowCost)

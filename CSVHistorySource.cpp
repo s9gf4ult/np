@@ -3,3 +3,7 @@
 CSVHistorySource::CSVHistorySource()
 {
 }
+
+QList<QString> *CSVHistorySource::listTickers() const
+{
+}

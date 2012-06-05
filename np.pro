@@ -23,7 +23,7 @@ HEADERS += Candle.h Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
     CandleVisitor.h \
     AbstractHistorySource.h \
     PointersList.h \
-    CSVHistorySource.h
+#    CSVHistorySource.h
 SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp Tick.cpp \
     SecondsPeriod.cpp \
     MinutesPeriod.cpp \
@@ -32,7 +32,7 @@ SOURCES += Candle.cpp Main.cpp SystemSimulator.cpp CommonError.cpp Tick.cpp \
     Common.cpp \
     MonthPeriod.cpp \
     YearPeriod.cpp \
-    CSVHistorySource.cpp
+#    CVHistorySource.cpp
 
 
 QMAKE_CXXFLAGS_DEBUG += -pg -g3

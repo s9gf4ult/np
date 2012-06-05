@@ -18,16 +18,10 @@
 
 
 int main () {
-    PointersList<QString> list;
-    list.append(new QString("jdjdjd"));
-    list.append(new QString("fuck fuck"));
     QTextStream out(stdout);
-    for(PointersList<QString>::const_iterator it = list.begin(); it != list.end(); ++it) {
-        out << **it << "\n";
-    }
-
-
-    out << "finish\n";
-    out.flush();
+    QList<QString> a;
+    a.append(QString("you"));
+    a.append(QString("something"));
+    out << a.length();
 }
   

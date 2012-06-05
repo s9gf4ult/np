@@ -9,15 +9,15 @@
 
 class SystemSimulator : public CommonSystem {
   QString ticket;
-  QList<Candle> candles;
+  QList<SimpleCandle> candles;
   bool subscribed;
 
 public:
   SystemSimulator(const QString &,
-                  const QList<Candle> &);
+                  const QList<SimpleCandle> &);
   
   virtual QList<QString> * getTicketsList() const;
-  virtual QList<Candle> * getCandles(const QString &,
+  virtual QList<SimpleCandle> * getCandles(const QString &,
                                      const TimePeriod &,
                                      const QDateTime &,
                                      const QDateTime &) const;

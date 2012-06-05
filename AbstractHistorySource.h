@@ -47,7 +47,7 @@ public:
      * @return pointer to list of pointers to \ref Candle
      * @note returned pointer and it's contents must be freed by the caller
      */
-    virtual QList<Candle *> *listCandles(const QString &ticket,
+    virtual QList<SimpleCandle *> *listCandles(const QString &ticket,
                                        TimePeriod *period,
                                        const QDateTime &begin,
                                        const QDateTime &end) const = 0;

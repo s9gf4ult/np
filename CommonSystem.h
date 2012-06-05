@@ -38,7 +38,7 @@ class CommonSystem : QObject {
    * \note
    * returned QList must be destroyed by caller
    */
-  virtual QList<Candle> *getCandles(const QString &ticket, const TimePeriod &period, const QDateTime &begin, const QDateTime &end) const = 0;
+  virtual QList<SimpleCandle> *getCandles(const QString &ticket, const TimePeriod &period, const QDateTime &begin, const QDateTime &end) const = 0;
 
   /**Subscribe to changes of concrete ticket
    */
@@ -56,8 +56,8 @@ class CommonSystem : QObject {
   virtual QList<QString> * getSubscripted() const = 0;
 
 signals:
-  void newData(QList<Candle> &);
-  void newData(QList<Tick> &);
+  void newData(QList<SimpleCandle> &);
+  void newData(QList<SimpleTick> &);
   
 };
   

@@ -6,16 +6,16 @@
 #include "AbstractCandle.h"
 #include "CandleVisitor.h"
 
-class Tick : public AbstractCandle {
+class SimpleTick : public AbstractCandle {
 public:
-  Tick(const QDateTime &, double cost, double volume);
-  Tick();
-  virtual ~Tick() {};
-  virtual Tick &setVolume(double) throw(ValueError);
+  SimpleTick(const QDateTime &, double cost, double volume);
+  SimpleTick();
+  virtual ~SimpleTick() {};
+  virtual SimpleTick &setVolume(double) throw(ValueError);
   virtual double getVolume() const;
-  virtual Tick &setCost(double) throw(ValueError);
+  virtual SimpleTick &setCost(double) throw(ValueError);
   virtual double getCost() const;
-  virtual Tick &setTime(const QDateTime &);
+  virtual SimpleTick &setTime(const QDateTime &);
   virtual const QDateTime &getDateTime() const;
   virtual double getOpenCost() const;
   virtual double getCloseCost() const;
