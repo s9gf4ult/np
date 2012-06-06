@@ -2,9 +2,10 @@
 #define ABSTRACTCANDLE_H
 
 #include <QDateTime>
+#include <QSharedData>
 #include "CandleVisitor.h"
 
-class AbstractCandle
+class AbstractCandle : public QSharedData
 {
 public:
     virtual double getOpenCost() const = 0;

@@ -16,9 +16,10 @@ int main () {
     out << QString("size of Candle: %1\n").arg(sizeof(Candle<SimpleCandle>));
     out << QString("size of qdatetime: %1\n").arg(sizeof(QDateTime));
     out << QString("size of shared pointer: %1\n").arg(sizeof(QSharedPointer<SimpleCandle>));
-    out.flush();
     Candle<SimpleCandle> x(new SimpleCandle());
     Candle<AbstractCandle> y(x.value.data());
-    out << y.toString();
+    out << x.toString() << "\n";
+
+    out.flush();
 }
   

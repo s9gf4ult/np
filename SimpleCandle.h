@@ -9,7 +9,7 @@
 #include "CandleVisitor.h"
 
 
-class SimpleCandle : public AbstractCandle {
+class SimpleCandle {
  public:
   enum CandleColor
     {RED = -1,
@@ -18,7 +18,7 @@ class SimpleCandle : public AbstractCandle {
   
   SimpleCandle (double OpenCost, double CloseCost, double LowCost, double HighCost, double Volume, QDateTime &OpenTime, QDateTime &CloseTime);
   SimpleCandle ();
-  virtual ~SimpleCandle() {};
+  virtual ~SimpleCandle() {}
   virtual CandleColor getColor() const;
   virtual double getOpenCost() const;
   virtual SimpleCandle &setOpenCost(double) throw(ValueError);

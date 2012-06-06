@@ -19,7 +19,7 @@ SimpleCandle::SimpleCandle (double OpenCost,
     CloseTime(CloseTime) {
 };
 
-SimpleCandle::SimpleCandle() : OpenCost(0), CloseCost(0), LowCost(0), HighCost(0) {
+SimpleCandle::SimpleCandle() : OpenCost(0), CloseCost(0), LowCost(0), HighCost(0), Volume(0) {
 };
 
 double SimpleCandle::getOpenCost() const {

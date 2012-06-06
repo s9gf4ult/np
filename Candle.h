@@ -2,12 +2,17 @@
 #define CANDLE_H
 
 #include "AbstractCandle.h"
-#include <QSharedPointer>
+#include <QSharedDataPointer>
+#include <QSharedData>
 
 template<class T>
-class Candle : public AbstractCandle {
+class Candle : public AbstractCandle, QSharedData {
 public:
-    Candle(T *candle) : value(candle) {
+    explicit Candle(T *candle) : value(candle) {
+
+    }
+
+    explicit Candle(const Candle &obj) : value(obj.value) {
 
     }
 
@@ -47,7 +52,7 @@ public:
         return value->toString();
     }
 
-    QSharedPointer<T> value;
+    QSharedDataPointer<T> value;
 };
 
 #endif // CANDLE_H
