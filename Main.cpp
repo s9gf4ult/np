@@ -19,6 +19,11 @@ int main () {
     Candle<SimpleCandle> x(new SimpleCandle());
     Candle<AbstractCandle> y(x.value.data());
     out << x.toString() << "\n";
+    out << y.toString() << "\n";
+    out << "changing x\n";
+    x.value->setVolume(20);
+    out << x.toString() << "\n";
+    out << y.toString() << "\n";
 
     out.flush();
 }

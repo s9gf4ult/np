@@ -6,49 +6,49 @@
 #include <QSharedData>
 
 template<class T>
-class Candle : public AbstractCandle, QSharedData {
+class Candle {
 public:
-    explicit Candle(T *candle) : value(candle) {
+    Candle(T *candle) : value(candle) {
 
     }
 
-    explicit Candle(const Candle &obj) : value(obj.value) {
+    Candle(const Candle &obj) : value(obj.value) {
 
     }
 
-    virtual double getOpenCost() const {
+    double getOpenCost() const {
         return value->getOpenCost();
     }
 
-    virtual double getCloseCost() const {
+    double getCloseCost() const {
         return value->getCloseCost();
     }
 
-    virtual double getLowCost() const {
+    double getLowCost() const {
         return value->getLowCost();
     }
 
-    virtual double getHighCost() const {
+    double getHighCost() const {
         return value->getHighCost();
     }
 
-    virtual double getVolume() const {
+    double getVolume() const {
         return value->getVolume();
     }
 
-    virtual const QDateTime &getOpenTime() const {
+    const QDateTime &getOpenTime() const {
         return value->getOpenTime();
     }
 
-    virtual const QDateTime &getCloseTime() const {
+    const QDateTime &getCloseTime() const {
         return value->getCloseTime();
     }
 
-    virtual void accept(CandleVisitor *vis) {
+    void accept(CandleVisitor *vis) {
         value->accept(vis);
     }
 
-    virtual QString toString() {
+     QString toString() {
         return value->toString();
     }
 

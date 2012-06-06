@@ -9,7 +9,7 @@
 #include "CandleVisitor.h"
 
 
-class SimpleCandle {
+class SimpleCandle : public AbstractCandle {
  public:
   enum CandleColor
     {RED = -1,
