@@ -18,14 +18,14 @@ public:
      * @brief listTickers
      * @return QList<QString> * - pointer which must be freed by the caller
      */
-    virtual QList<QString> *listTickers() const = 0;
+    virtual QList<QString> listTickers() const = 0;
 
     /**
      * @brief listTickers
      * @param search - string to search ticket name
      * @return QList<QString> * - pointer which must be freed by the caller
      */
-    virtual QList<QString> *listTickers(const QString &search) const = 0;
+    virtual QList<QString> listTickers(const QString &search) const = 0;
 
     /**
      * @brief listSource list candles from primary data
@@ -35,7 +35,7 @@ public:
      * @return pointer to list of pointers of \ref AbstractCandle
      * @note The list and it's contents must be freed by the caller
      */
-    virtual QList<AbstractCandle *> *listSource(const QString &ticket,
+    virtual QList<AbstractCandle *> listSource(const QString &ticket,
                                                 const QDateTime& begin,
                                                 const QDateTime& end) const = 0;
     /**
@@ -47,7 +47,7 @@ public:
      * @return pointer to list of pointers to \ref Candle
      * @note returned pointer and it's contents must be freed by the caller
      */
-    virtual QList<SimpleCandle *> *listCandles(const QString &ticket,
+    virtual QList<SimpleCandle *> listCandles(const QString &ticket,
                                        TimePeriod *period,
                                        const QDateTime &begin,
                                        const QDateTime &end) const = 0;

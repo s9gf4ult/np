@@ -35,7 +35,7 @@ SOURCES += Main.cpp SystemSimulator.cpp CommonError.cpp \
     Common.cpp \
     MonthPeriod.cpp \
     YearPeriod.cpp \
-    CVHistorySource.cpp \
+    CSVHistorySource.cpp \
     SimpleTick.cpp \
     SimpleCandle.cpp
 

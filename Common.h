@@ -2,7 +2,7 @@
 #define COMMON_H
 
 #include "SimpleCandle.h"
-#include "AbstractCandle.h"
+#include "Candle.h"
 #include <QtAlgorithms>
 #include <QtGlobal>
 
@@ -62,7 +62,7 @@ SimpleCandle *reduceCandleCollection(T *collection){
     return new SimpleCandle(oc, cc, mn, mx, volume, ot, ct);
   };
   return 0;
-};
+}
 
 
 
