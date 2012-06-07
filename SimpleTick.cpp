@@ -8,6 +8,11 @@ SimpleTick::SimpleTick():
   Volume(0), Cost(0) {
 }
 
+SimpleTick::SimpleTick(const SimpleTick &other)
+    :Volume(other.Volume), Cost(other.Cost), Time(other.Time) {
+
+}
+
 SimpleTick &SimpleTick::setVolume(double volume) throw(ValueError){
   if (volume <= 0) {
     throw(ValueError().setMessage("Volume of tick must be grather than 0"));
@@ -37,6 +42,10 @@ double SimpleTick::getCost() const {
 SimpleTick &SimpleTick::setTime(const QDateTime &qdt) {
   Time = qdt;
   return *this;
+}
+
+AbstractCandle *SimpleTick::cloneCandle() const {
+    return new SimpleTick(*this);
 }
 
 const QDateTime &SimpleTick::getDateTime() const {

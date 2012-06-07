@@ -10,7 +10,8 @@ class SimpleTick : public AbstractCandle {
 public:
   SimpleTick(const QDateTime &, double cost, double volume);
   SimpleTick();
-  virtual ~SimpleTick() {};
+  SimpleTick(const SimpleTick &other);
+  virtual ~SimpleTick() {}
   virtual SimpleTick &setVolume(double) throw(ValueError);
   virtual double getVolume() const;
   virtual SimpleTick &setCost(double) throw(ValueError);
@@ -25,6 +26,7 @@ public:
   virtual const QDateTime &getCloseTime() const;
   virtual void accept(CandleVisitor *visitor);
   virtual QString toString();
+  virtual AbstractCandle* cloneCandle() const ;
 private:
   double Volume;
   double Cost;

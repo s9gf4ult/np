@@ -37,7 +37,8 @@ SOURCES += Main.cpp SystemSimulator.cpp CommonError.cpp \
     YearPeriod.cpp \
     CSVHistorySource.cpp \
     SimpleTick.cpp \
-    SimpleCandle.cpp
+    SimpleCandle.cpp \
+    AbstractCandle.cpp
 
 
 QMAKE_CXXFLAGS_DEBUG += -pg -g3

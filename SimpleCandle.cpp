@@ -17,10 +17,18 @@ SimpleCandle::SimpleCandle (double OpenCost,
     Volume(Volume),
     OpenTime(OpenTime),
     CloseTime(CloseTime) {
-};
+}
 
 SimpleCandle::SimpleCandle() : OpenCost(0), CloseCost(0), LowCost(0), HighCost(0), Volume(0) {
-};
+}
+
+SimpleCandle::SimpleCandle(const SimpleCandle &other)
+    : OpenCost(other.OpenCost), CloseCost(other.CloseCost),
+      LowCost(other.LowCost), HighCost(other.HighCost),
+      OpenTime(other.OpenTime), CloseTime(other.CloseTime), Volume(other.Volume)
+{
+
+}
 
 double SimpleCandle::getOpenCost() const {
   return this->OpenCost;
@@ -175,6 +183,11 @@ QString SimpleCandle::toString()
             .arg(this->getHighCost())
             .arg(this->getLowCost())
             .arg(this->getVolume());
+}
+
+
+AbstractCandle *SimpleCandle::cloneCandle() const{
+    return new SimpleCandle(*this);
 }
 
 SimpleCandle::CandleColor SimpleCandle::getColor() const {

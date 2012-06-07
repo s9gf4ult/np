@@ -18,6 +18,7 @@ class SimpleCandle : public AbstractCandle {
   
   SimpleCandle (double OpenCost, double CloseCost, double LowCost, double HighCost, double Volume, QDateTime &OpenTime, QDateTime &CloseTime);
   SimpleCandle ();
+  SimpleCandle (const SimpleCandle& other);
   virtual ~SimpleCandle() {}
   virtual CandleColor getColor() const;
   virtual double getOpenCost() const;
@@ -43,6 +44,7 @@ class SimpleCandle : public AbstractCandle {
   virtual bool operator<(const SimpleCandle &) const;
   virtual void accept(CandleVisitor *);
   virtual QString toString();
+  virtual AbstractCandle* cloneCandle() const ;
 private:
   double OpenCost;
   double CloseCost;

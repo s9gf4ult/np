@@ -3,28 +3,39 @@
 #include "SimpleTick.h"
 #include "AbstractCandle.h"
 #include "Common.h"
+#include "CandleVisitor.h"
 #include <QTextStream>
 #include <QTextCodec>
 #include <QString>
 #include <QDateTime>
 
+class SetVolume : public CandleVisitor {
+public:
+    SetVolume(double v) : Volume(v) {}
+    virtual void visit(SimpleCandle *candle) {
+        candle->setVolume(Volume);
+    }
+
+    virtual void visit(SimpleTick *tick) {
+        tick->setVolume(Volume);
+    }
+
+protected:
+    double Volume;
+};
+
 int main () {
     QTextStream out(stdout);
     out.setCodec(QTextCodec::codecForName("UTF-8"));
-    out << QString("size of SimpleCandle : %1\n").arg(sizeof(SimpleCandle));
-    out << QString("size of SimpleTick: %1\n").arg(sizeof(SimpleTick));
-    out << QString("size of Candle: %1\n").arg(sizeof(Candle<SimpleCandle>));
-    out << QString("size of qdatetime: %1\n").arg(sizeof(QDateTime));
-    out << QString("size of shared pointer: %1\n").arg(sizeof(QSharedPointer<SimpleCandle>));
-    Candle<SimpleCandle> x(new SimpleCandle());
-    Candle<AbstractCandle> y(x.value.data());
+    Candle x(new SimpleCandle());
+    Candle y(x);
     out << x.toString() << "\n";
     out << y.toString() << "\n";
     out << "changing x\n";
-    x.value->setVolume(20);
+    SetVolume svt(20);
+    x.accept(&svt);
     out << x.toString() << "\n";
     out << y.toString() << "\n";
-
     out.flush();
 }
   

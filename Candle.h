@@ -5,10 +5,10 @@
 #include <QSharedDataPointer>
 #include <QSharedData>
 
-template<class T>
+//template<class T>
 class Candle {
 public:
-    Candle(T *candle) : value(candle) {
+    Candle(AbstractCandle *candle) : value(candle) {
 
     }
 
@@ -17,15 +17,15 @@ public:
     }
 
     double getOpenCost() const {
-        return value->getOpenCost();
+        return value.data()->getOpenCost();
     }
 
     double getCloseCost() const {
-        return value->getCloseCost();
+        return value.data()->getCloseCost();
     }
 
     double getLowCost() const {
-        return value->getLowCost();
+        return value.data()->getLowCost();
     }
 
     double getHighCost() const {
@@ -41,18 +41,18 @@ public:
     }
 
     const QDateTime &getCloseTime() const {
-        return value->getCloseTime();
+        return value.data()->getCloseTime();
     }
 
     void accept(CandleVisitor *vis) {
-        value->accept(vis);
+        value.data()->accept(vis);
     }
 
-     QString toString() {
-        return value->toString();
+    QString toString() {
+        return value.data()->toString();
     }
 
-    QSharedDataPointer<T> value;
+    QSharedDataPointer<AbstractCandle> value;
 };
 
 #endif // CANDLE_H
