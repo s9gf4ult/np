@@ -26,15 +26,22 @@ protected:
 
 int main () {
     QTextStream out(stdout);
+    out << sizeof(Candle) << "\n";
+    out.flush();
     out.setCodec(QTextCodec::codecForName("UTF-8"));
     Candle x(new SimpleCandle());
     Candle y(x);
     out << x.toString() << "\n";
+    out.flush();
     out << y.toString() << "\n";
+    out.flush();
     out << "changing x\n";
+    out.flush();
     SetVolume svt(20);
     x.accept(&svt);
+    out.flush();
     out << x.toString() << "\n";
+    out.flush();
     out << y.toString() << "\n";
     out.flush();
 }

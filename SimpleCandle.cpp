@@ -91,7 +91,7 @@ SimpleCandle & SimpleCandle::setHighCost(double hc) throw(ValueError) {
 }
 
 
-const QDateTime &SimpleCandle::getOpenTime() const {
+QDateTime SimpleCandle::getOpenTime() const {
   return this->OpenTime;
 };
 
@@ -104,7 +104,7 @@ SimpleCandle & SimpleCandle::setOpenTime(const QDateTime &ot) throw(ValueError) 
   return *this;
 };
 
-const QDateTime &SimpleCandle::getCloseTime() const {
+QDateTime SimpleCandle::getCloseTime() const {
   return this->CloseTime;
 };
 
@@ -173,7 +173,7 @@ void SimpleCandle::accept(CandleVisitor *visitor)
     visitor->visit(this);
 }
 
-QString SimpleCandle::toString()
+QString SimpleCandle::toString() const
 {
     return QString("Candle, open time: %1, close time %2, open cost: %3, close cost: %4, highest cost: %5, lowest cost: %6, volume: %7")
             .arg(this->getOpenTime().toString())

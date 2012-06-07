@@ -17,15 +17,15 @@ public:
   virtual SimpleTick &setCost(double) throw(ValueError);
   virtual double getCost() const;
   virtual SimpleTick &setTime(const QDateTime &);
-  virtual const QDateTime &getDateTime() const;
+  virtual QDateTime getDateTime() const;
   virtual double getOpenCost() const;
   virtual double getCloseCost() const;
   virtual double getLowCost() const;
   virtual double getHighCost() const;
-  virtual const QDateTime &getOpenTime() const;
-  virtual const QDateTime &getCloseTime() const;
+  virtual QDateTime getOpenTime() const;
+  virtual QDateTime getCloseTime() const;
   virtual void accept(CandleVisitor *visitor);
-  virtual QString toString();
+  virtual QString toString() const;
   virtual AbstractCandle* cloneCandle() const ;
 private:
   double Volume;

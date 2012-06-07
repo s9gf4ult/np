@@ -48,7 +48,7 @@ AbstractCandle *SimpleTick::cloneCandle() const {
     return new SimpleTick(*this);
 }
 
-const QDateTime &SimpleTick::getDateTime() const {
+QDateTime SimpleTick::getDateTime() const {
   return Time;
 }
 
@@ -68,11 +68,11 @@ double SimpleTick::getHighCost() const {
     return getCost();
 }
 
-const QDateTime &SimpleTick::getOpenTime() const {
+QDateTime SimpleTick::getOpenTime() const {
     return getDateTime();
 }
 
-const QDateTime &SimpleTick::getCloseTime() const {
+QDateTime SimpleTick::getCloseTime() const {
     return getDateTime();
 }
 
@@ -81,7 +81,7 @@ void SimpleTick::accept(CandleVisitor *visitor)
     visitor->visit(this);
 }
 
-QString SimpleTick::toString()
+QString SimpleTick::toString() const
 {
     return QString("Tick with time: %1, cost: %2, volume: %3")
             .arg(this->getDateTime().toString())

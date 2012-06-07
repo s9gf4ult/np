@@ -29,9 +29,9 @@ class SimpleCandle : public AbstractCandle {
   virtual SimpleCandle &setLowCost(double) throw(ValueError);
   virtual double getHighCost() const;
   virtual SimpleCandle &setHighCost(double) throw(ValueError);
-  virtual const QDateTime &getOpenTime() const;
+  virtual QDateTime getOpenTime() const;
   virtual SimpleCandle &setOpenTime(const QDateTime &) throw(ValueError);
-  virtual const QDateTime &getCloseTime() const;
+  virtual QDateTime getCloseTime() const;
   virtual SimpleCandle &setCloseTime(const QDateTime &) throw(ValueError);
   virtual double getVolume() const;
   virtual SimpleCandle &setVolume(double) throw(ValueError);
@@ -43,7 +43,7 @@ class SimpleCandle : public AbstractCandle {
   virtual bool operator<=(const SimpleCandle &) const;
   virtual bool operator<(const SimpleCandle &) const;
   virtual void accept(CandleVisitor *);
-  virtual QString toString();
+  virtual QString toString() const;
   virtual AbstractCandle* cloneCandle() const ;
 private:
   double OpenCost;
