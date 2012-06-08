@@ -1,5 +1,4 @@
 #include "SimpleCandle.h"
-#include "Common.h"
 #include "ValueError.h"
 #include <QDateTime>
 
@@ -32,7 +31,7 @@ SimpleCandle::SimpleCandle(const SimpleCandle &other)
 
 double SimpleCandle::getOpenCost() const {
   return this->OpenCost;
-};
+}
 
 SimpleCandle & SimpleCandle::setOpenCost(double oc) throw(ValueError) {
   if (oc <= 0) {
@@ -77,7 +76,7 @@ SimpleCandle & SimpleCandle::setLowCost(double lc) throw(ValueError) {
 
 double SimpleCandle::getHighCost() const {
   return this->HighCost;
-};
+}
 
 SimpleCandle & SimpleCandle::setHighCost(double hc) throw(ValueError) {
   if (hc <= 0) {
@@ -93,7 +92,7 @@ SimpleCandle & SimpleCandle::setHighCost(double hc) throw(ValueError) {
 
 QDateTime SimpleCandle::getOpenTime() const {
   return this->OpenTime;
-};
+}
 
 SimpleCandle & SimpleCandle::setOpenTime(const QDateTime &ot) throw(ValueError) {
   if (ot > CloseTime) {
@@ -102,11 +101,11 @@ SimpleCandle & SimpleCandle::setOpenTime(const QDateTime &ot) throw(ValueError) 
     this->OpenTime = ot;
   }
   return *this;
-};
+}
 
 QDateTime SimpleCandle::getCloseTime() const {
   return this->CloseTime;
-};
+}
 
 SimpleCandle & SimpleCandle::setCloseTime(const QDateTime &ct) throw(ValueError) {
   if (ct < OpenTime) {
@@ -115,11 +114,11 @@ SimpleCandle & SimpleCandle::setCloseTime(const QDateTime &ct) throw(ValueError)
     this->CloseTime = ct;
   }
   return *this;
-};
+}
 
 double SimpleCandle::getVolume() const {
   return this->Volume;
-};
+}
 
 SimpleCandle & SimpleCandle::setVolume(double volume) throw(ValueError) {
   if (volume <= 0) {
@@ -128,45 +127,10 @@ SimpleCandle & SimpleCandle::setVolume(double volume) throw(ValueError) {
     this->Volume = volume;
   }
   return *this;
-};
+}
   
 
-bool SimpleCandle::isValid() const {
-  return ((this->getLowCost() <= this->getHighCost()) &&
-          (this->getOpenCost() <= this->getHighCost()) && (this->getOpenCost() >= this->getLowCost()) &&
-          (this->getCloseCost() <= this->getHighCost()) && (this->getCloseCost() >= this->getLowCost()) &&
-          (this->getOpenTime() <= this->getCloseTime()));
-};
 
-int SimpleCandle::compare(const SimpleCandle& cndl) const {
-  int c1 = cmp(this->getOpenTime(), cndl.getOpenTime());
-  if (c1 != 0) {
-    return c1;
-  } else {
-    return cmp(this->getCloseTime(), cndl.getCloseTime());
-  };
-  return 0;
-};
-
-bool SimpleCandle::operator>(const SimpleCandle &a) const {
-  return this->compare(a) > 0;
-}
-
-bool SimpleCandle::operator>=(const SimpleCandle &a) const {
-  return this->compare(a) >= 0;
-}
-
-bool SimpleCandle::operator==(const SimpleCandle &a) const {
-  return this->compare(a) == 0;
-}
-
-bool SimpleCandle::operator<=(const SimpleCandle &a) const {
-  return this->compare(a) <= 0;
-}
-
-bool SimpleCandle::operator<(const SimpleCandle &a) const {
-    return this->compare(a) < 0;
-}
 
 void SimpleCandle::accept(CandleVisitor *visitor)
 {
@@ -188,13 +152,4 @@ QString SimpleCandle::toString() const
 
 AbstractCandle *SimpleCandle::cloneCandle() const{
     return new SimpleCandle(*this);
-}
-
-SimpleCandle::CandleColor SimpleCandle::getColor() const {
-  if (CloseCost > LowCost)
-    return GREEN;
-  else if (CloseCost == LowCost)
-    return GRAY;
-  else
-    return RED;
 }

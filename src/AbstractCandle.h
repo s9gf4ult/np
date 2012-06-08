@@ -18,6 +18,7 @@ public:
     virtual void accept(CandleVisitor *) = 0;
     virtual QString toString() const = 0;
     virtual AbstractCandle* cloneCandle() const = 0;
+
 };
 
 
