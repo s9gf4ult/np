@@ -16,7 +16,7 @@ class SimpleCandle : public AbstractCandle {
      GRAY = 0,
      GREEN = 1};
   
-  SimpleCandle (double OpenCost, double CloseCost, double LowCost, double HighCost, double Volume, QDateTime &OpenTime, QDateTime &CloseTime);
+  SimpleCandle (double OpenCost, double CloseCost, double LowCost, double HighCost, double Volume, QDateTime OpenTime, QDateTime CloseTime);
   SimpleCandle ();
   SimpleCandle (const SimpleCandle& other);
   virtual ~SimpleCandle() {}

@@ -8,8 +8,8 @@ SimpleCandle::SimpleCandle (double OpenCost,
                 double LowCost,
                 double HighCost,
                 double Volume,
-                QDateTime &OpenTime,
-                QDateTime &CloseTime):
+                QDateTime OpenTime,
+                QDateTime CloseTime):
     OpenCost(OpenCost),
     CloseCost(CloseCost),
     LowCost(LowCost),
