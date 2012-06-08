@@ -2,11 +2,10 @@
 #define ABSTRACTCANDLE_H
 
 #include <QDateTime>
-#include <QSharedData>
+#include <QString>
 #include "CandleVisitor.h"
 
-class AbstractCandle : public QSharedData
-{
+class AbstractCandle {
 public:
     virtual double getOpenCost() const = 0;
     virtual double getCloseCost() const = 0;
@@ -17,9 +16,6 @@ public:
     virtual QDateTime getCloseTime() const = 0;
     virtual void accept(CandleVisitor *) = 0;
     virtual QString toString() const = 0;
-    virtual AbstractCandle* cloneCandle() const = 0;
-
 };
-
 
 #endif // ABSTRACTCANDLE_H

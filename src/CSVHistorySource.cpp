@@ -16,12 +16,12 @@ QList<QString> CSVHistorySource::listTickers(const QString &search) const
     return QList<QString>();
 }
 
-QList<AbstractCandle *> CSVHistorySource::listSource(const QString &ticket, const QDateTime &begin, const QDateTime &end) const
+QList<SharedCandle *> CSVHistorySource::listSource(const QString &ticket, const QDateTime &begin, const QDateTime &end) const
 {
-    return QList<AbstractCandle *>();
+    return QList<SharedCandle *>();
 }
 
-QList<SimpleCandle *> CSVHistorySource::listCandles(const QString &ticket, TimePeriod *period, const QDateTime &begin, const QDateTime &end) const
+QList<SimpleCandle *> CSVHistorySource::listCandles(const QString &ticket, SharedPeriod *period, const QDateTime &begin, const QDateTime &end) const
 {
     return QList<SimpleCandle *>();
 }

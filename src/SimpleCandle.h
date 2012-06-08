@@ -5,11 +5,11 @@
 #include <QDateTime>
 #include <QObject>
 #include <QSharedPointer>
-#include "AbstractCandle.h"
+#include "SharedCandle.h"
 #include "CandleVisitor.h"
 
 
-class SimpleCandle : public AbstractCandle {
+class SimpleCandle : public SharedCandle {
  public:
   SimpleCandle (double OpenCost, double CloseCost, double LowCost, double HighCost, double Volume, QDateTime OpenTime, QDateTime CloseTime);
   SimpleCandle ();
@@ -31,15 +31,15 @@ class SimpleCandle : public AbstractCandle {
   virtual SimpleCandle &setVolume(double) throw(ValueError);
   virtual void accept(CandleVisitor *);
   virtual QString toString() const;
-  virtual AbstractCandle* cloneCandle() const ;
+  virtual SharedCandle* cloneCandle() const ;
 private:
   double OpenCost;
   double CloseCost;
   double LowCost;
   double HighCost;
+  double Volume;
   QDateTime OpenTime;
   QDateTime CloseTime;
-  double Volume;
 };
   
 

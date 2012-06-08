@@ -1,5 +1,5 @@
 #include "SystemSimulator.h"
-#include "TimePeriod.h"
+#include "Period.h"
 #include <QList>
 #include <QString>
 
@@ -15,7 +15,7 @@ QList<QString> * SystemSimulator::getTicketsList() const {
 };
 
 QList<SimpleCandle> * SystemSimulator::getCandles(const QString &ticket,
-                                            const TimePeriod &period,
+                                            const SharedPeriod &period,
                                             const QDateTime &begin,
                                             const QDateTime &end) const {
   return new QList<SimpleCandle>(this->candles);

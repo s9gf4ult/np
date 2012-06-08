@@ -3,10 +3,14 @@
 
 MinutesPeriod::MinutesPeriod() :
   Value(M60V1) {
-};
+}
 
 MinutesPeriod::MinutesPeriod(Multiple60 val) : Value(val) {
-};
+}
+
+MinutesPeriod::MinutesPeriod(const MinutesPeriod &other) : Value(other.Value)
+{
+}
 
 QDateTime MinutesPeriod::getNextTime(const QDateTime &qdt) const {
   QDateTime ret = qdt;
@@ -37,5 +41,10 @@ MinutesPeriod & MinutesPeriod::setValue(Multiple60 val) {
 };
 
 Multiple60 MinutesPeriod::getValue() const {
-  return Value;
+    return Value;
+}
+
+SharedPeriod *MinutesPeriod::clonePeriod() const
+{
+    return new MinutesPeriod(*this);
 };

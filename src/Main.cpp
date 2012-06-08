@@ -1,7 +1,6 @@
 #include "Candle.h"
 #include "SimpleCandle.h"
 #include "SimpleTick.h"
-#include "AbstractCandle.h"
 #include "Common.h"
 #include "CandleVisitor.h"
 #include <QTextStream>

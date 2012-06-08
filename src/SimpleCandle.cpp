@@ -150,6 +150,6 @@ QString SimpleCandle::toString() const
 }
 
 
-AbstractCandle *SimpleCandle::cloneCandle() const{
+SharedCandle *SimpleCandle::cloneCandle() const{
     return new SimpleCandle(*this);
 }

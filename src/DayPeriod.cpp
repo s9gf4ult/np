@@ -6,10 +6,14 @@
 DayPeriod::DayPeriod() :
   Value(1),
   ControlPoint(QDateTime(QDate(1900, 1, 1), QTime(0, 0))) {
-};
+}
 
 DayPeriod::DayPeriod(const QDateTime &qdt, int value) : Value(value), ControlPoint(qdt) {
-};
+}
+
+DayPeriod::DayPeriod(const DayPeriod &other) : Value(other.Value), ControlPoint(other.ControlPoint)
+{
+}
 
 QDateTime DayPeriod::getNextTime(const QDateTime &qdt) const {
   QDateTime ret = qdt;

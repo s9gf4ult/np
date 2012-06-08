@@ -9,7 +9,7 @@ INCLUDEPATH += .
 
 # Input
 HEADERS += Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
-           TimePeriod.h CommonError.h ValueError.h \
+           CommonError.h ValueError.h \
     SecondsPeriod.h \
     Multiple60.h \
     Multiple24.h \
@@ -19,14 +19,18 @@ HEADERS += Common.h CommonSystem.h CommonBot.h SystemSimulator.h \
     PeriodVisitor.h \
     MonthPeriod.h \
     YearPeriod.h \
-    AbstractCandle.h \
     CandleVisitor.h \
     AbstractHistorySource.h \
     PointersList.h \
     CSVHistorySource.h \
     SimpleTick.h \
     SimpleCandle.h \
-    Candle.h
+    Candle.h \
+    SharedCandle.h \
+    AbstractCandle.h \
+    SharedPeriod.h \
+    AbstractPeriod.h \
+    Period.h
 SOURCES += Main.cpp SystemSimulator.cpp CommonError.cpp \
     SecondsPeriod.cpp \
     MinutesPeriod.cpp \
@@ -38,7 +42,8 @@ SOURCES += Main.cpp SystemSimulator.cpp CommonError.cpp \
     CSVHistorySource.cpp \
     SimpleTick.cpp \
     SimpleCandle.cpp \
-    Candle.cpp
+    Candle.cpp \
+    Period.cpp
 
 
 QMAKE_CXXFLAGS_DEBUG += -pg -g3

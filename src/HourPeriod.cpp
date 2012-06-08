@@ -5,10 +5,14 @@
 #include "PeriodVisitor.h"
 
 HourPeriod::HourPeriod() : Value(M24V1) {
-};
+}
 
 HourPeriod::HourPeriod(Multiple24 val) : Value(val) {
-};
+}
+
+HourPeriod::HourPeriod(const HourPeriod &other) : Value(other.Value)
+{
+}
 
 QDateTime HourPeriod::getNextTime(const QDateTime & qdt) const {
   QDateTime ret = qdt;

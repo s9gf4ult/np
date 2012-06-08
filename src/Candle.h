@@ -2,18 +2,19 @@
 #define CANDLE_H
 
 #include "AbstractCandle.h"
+#include "SharedCandle.h"
 #include <QSharedDataPointer>
 #include <QSharedData>
 
 //template<class T>
-class Candle {
+class Candle : public AbstractCandle {
 public:
     enum CandleColor
     {RED = -1,
      GRAY = 0,
      GREEN = 1};
 
-    Candle(AbstractCandle *candle);
+    Candle(SharedCandle *candle);
     Candle(const Candle &obj);
     virtual ~Candle() {}
     virtual double getOpenCost() const;
@@ -29,8 +30,10 @@ public:
     virtual CandleColor getColor() const;
     virtual bool operator==(const Candle &) const;
     virtual bool operator!=(const Candle &) const;
-
-    QSharedDataPointer<AbstractCandle> value;
+    virtual SharedCandle* data();
+    virtual const SharedCandle *constData() const;
+private:
+    QSharedDataPointer<SharedCandle> d;
 };
 
 int compare(const Candle first, const Candle second);

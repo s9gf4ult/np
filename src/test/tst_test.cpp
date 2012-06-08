@@ -52,6 +52,7 @@ void Test::testReduceCandles()
         list.append(Candle(new SimpleCandle(10. + (i / 9), 20. - (i / 9), 5. - (i / 9), 25. + (i / 9), 50.,
                                             QDateTime(QDate(2010, 10, 10), QTime(0, 0, i)),
                                             QDateTime(QDate(2010, 10, 10), QTime(0, 0, 2 * i)))));
+        QVERIFY(list.last().isValid());
     }
     QDateTime low = QDateTime(QDate(2010, 10, 10), QTime(0, 0, 0));
     QDateTime high = QDateTime(QDate(2010, 10, 10), QTime(0, 0, 2 * 9));
@@ -74,7 +75,8 @@ void Test::testImplicitSharing()
     SetVolume setv(20);
     b.accept(&setv);
     QVERIFY(a.getVolume() != b.getVolume()); //Candle was copied
-    QVERIFY(a.value != b.value);
+    QVERIFY(a != b);
+    QVERIFY(a.data() != b.data());
 
 }
 

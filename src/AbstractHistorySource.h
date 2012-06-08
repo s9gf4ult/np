@@ -3,9 +3,8 @@
 
 #include <QList>
 #include <QString>
-#include "SimpleCandle.h"
-#include "AbstractCandle.h"
-#include "TimePeriod.h"
+#include "Candle.h"
+#include "SharedPeriod.h"
 
 /**
  * @brief The AbstractHistorySource class
@@ -32,25 +31,25 @@ public:
      * @param ticket - ticket name
      * @param begin - earliest QDateTime period
      * @param end - latest QDateTime period
-     * @return pointer to list of pointers of \ref AbstractCandle
+     * @return pointer to list of pointers of \ref SharedCandle
      * @note The list and it's contents must be freed by the caller
      */
-    virtual QList<AbstractCandle *> listSource(const QString &ticket,
-                                                const QDateTime& begin,
-                                                const QDateTime& end) const = 0;
+    virtual QList<Candle> listSource(const QString ticket,
+                                     const QDateTime begin,
+                                     const QDateTime end) const = 0;
     /**
      * @brief listCandles list candles of given time period
      * @param ticket - QString, name of the ticket
-     * @param period - TimePeriod instance
+     * @param period - Period instance
      * @param begin -  earliest QDateTime of period
      * @param end - latest QDateTime of period
      * @return pointer to list of pointers to \ref Candle
      * @note returned pointer and it's contents must be freed by the caller
      */
-    virtual QList<SimpleCandle *> listCandles(const QString &ticket,
-                                       TimePeriod *period,
-                                       const QDateTime &begin,
-                                       const QDateTime &end) const = 0;
+    virtual QList<Candle> listCandles(const QString ticket,
+                                      const Period period,
+                                      const QDateTime begin,
+                                      const QDateTime end) const = 0;
 
 };
 

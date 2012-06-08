@@ -3,7 +3,7 @@
 
 #include "SimpleCandle.h"
 #include "CommonSystem.h"
-#include "TimePeriod.h"
+#include "Period.h"
 #include <QList>
 #include <QString>
 
@@ -18,7 +18,7 @@ public:
   
   virtual QList<QString> * getTicketsList() const;
   virtual QList<SimpleCandle> * getCandles(const QString &,
-                                     const TimePeriod &,
+                                     const SharedPeriod &,
                                      const QDateTime &,
                                      const QDateTime &) const;
   virtual void subscribe(const QString &);

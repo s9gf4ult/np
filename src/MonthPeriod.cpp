@@ -33,3 +33,8 @@ QDateTime MonthPeriod::getPrevTime(const QDateTime &qdt) const {
 void MonthPeriod::accept(PeriodVisitor *visitor) {
     visitor->visit(this);
 }
+
+SharedPeriod *MonthPeriod::clonePeriod() const
+{
+    return new MonthPeriod();
+}

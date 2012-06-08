@@ -3,10 +3,10 @@
 
 #include "ValueError.h"
 #include <QDateTime>
-#include "AbstractCandle.h"
+#include "SharedCandle.h"
 #include "CandleVisitor.h"
 
-class SimpleTick : public AbstractCandle {
+class SimpleTick : public SharedCandle {
 public:
   SimpleTick(const QDateTime &, double cost, double volume);
   SimpleTick();
@@ -26,7 +26,7 @@ public:
   virtual QDateTime getCloseTime() const;
   virtual void accept(CandleVisitor *visitor);
   virtual QString toString() const;
-  virtual AbstractCandle* cloneCandle() const ;
+  virtual SharedCandle* cloneCandle() const ;
 private:
   double Volume;
   double Cost;

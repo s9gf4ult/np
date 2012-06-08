@@ -19,3 +19,8 @@ QDateTime YearPeriod::getPrevTime(const QDateTime & qdt) const {
 void YearPeriod::accept(PeriodVisitor *visitor) {
     visitor->visit(this);
 }
+
+SharedPeriod *YearPeriod::clonePeriod() const
+{
+    return new YearPeriod();
+}

@@ -10,6 +10,10 @@ SecondsPeriod::SecondsPeriod() : Value(M60V1) {
 SecondsPeriod::SecondsPeriod(Multiple60 val) : Value(val) {
 }
 
+SecondsPeriod::SecondsPeriod(const SecondsPeriod &other) : Value(other.Value)
+{
+}
+
 QDateTime SecondsPeriod::getNextTime(const QDateTime &qdt) const {
   QDateTime newd = qdt;
   mSecsToZero(&newd);
@@ -39,5 +43,10 @@ SecondsPeriod &SecondsPeriod::setValue(Multiple60 val) {
 }
 
 Multiple60 SecondsPeriod::getValue() const {
-  return Value;
+    return Value;
+}
+
+SharedPeriod *SecondsPeriod::clonePeriod() const
+{
+    return new SecondsPeriod(*this);
 }

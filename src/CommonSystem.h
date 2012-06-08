@@ -2,7 +2,6 @@
 #define COMMONSYSTEM_H
 
 #include "SimpleCandle.h"
-#include "TimePeriod.h"
 #include "SimpleTick.h"
 #include <QDateTime>
 #include <QList>
@@ -38,7 +37,7 @@ class CommonSystem : QObject {
    * \note
    * returned QList must be destroyed by caller
    */
-  virtual QList<SimpleCandle> *getCandles(const QString &ticket, const TimePeriod &period, const QDateTime &begin, const QDateTime &end) const = 0;
+  virtual QList<SimpleCandle> *getCandles(const QString &ticket, const SharedPeriod &period, const QDateTime &begin, const QDateTime &end) const = 0;
 
   /**Subscribe to changes of concrete ticket
    */

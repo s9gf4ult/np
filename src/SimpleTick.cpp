@@ -44,7 +44,7 @@ SimpleTick &SimpleTick::setTime(const QDateTime &qdt) {
   return *this;
 }
 
-AbstractCandle *SimpleTick::cloneCandle() const {
+SharedCandle *SimpleTick::cloneCandle() const {
     return new SimpleTick(*this);
 }
 
