@@ -11,11 +11,11 @@ Period::Period()
 {
 }
 
-Period::Period(const SharedPeriod *data) : d(data)
+Period::Period(SharedPeriod *data) : d(data)
 {
 }
 
-Period::Period(const Period &other) : d(other.constData())
+Period::Period(const Period &other) : d(other.d)
 {
 }
 

@@ -11,7 +11,7 @@ class Period : public AbstractPeriod
 {
 public:
     Period();
-    Period(const SharedPeriod* data);
+    Period(SharedPeriod* data);
     Period(const Period& other);
     virtual ~Period() {}
 

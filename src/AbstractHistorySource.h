@@ -4,6 +4,7 @@
 #include <QList>
 #include <QString>
 #include "Candle.h"
+#include "Period.h"
 #include "SharedPeriod.h"
 
 /**

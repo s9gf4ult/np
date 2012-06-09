@@ -8,7 +8,7 @@ MonthPeriod::MonthPeriod()
 {
 }
 
-QDateTime MonthPeriod::getNextTime(const QDateTime &qdt) const {
+QDateTime MonthPeriod::getNextTime(const QDateTime qdt) const {
     QDateTime ret = qdt;
     ret.addMonths(1);
     QDate date = ret.date();
@@ -18,7 +18,7 @@ QDateTime MonthPeriod::getNextTime(const QDateTime &qdt) const {
     return ret;
 }
 
-QDateTime MonthPeriod::getPrevTime(const QDateTime &qdt) const {
+QDateTime MonthPeriod::getPrevTime(const QDateTime qdt) const {
     QDateTime ret = qdt;
     QTime t = ret.time();
     QTime begin(0, 0, 0);

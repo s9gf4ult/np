@@ -14,7 +14,7 @@ SecondsPeriod::SecondsPeriod(const SecondsPeriod &other) : Value(other.Value)
 {
 }
 
-QDateTime SecondsPeriod::getNextTime(const QDateTime &qdt) const {
+QDateTime SecondsPeriod::getNextTime(const QDateTime qdt) const {
   QDateTime newd = qdt;
   mSecsToZero(&newd);
   int second = newd.time().second();
@@ -23,7 +23,7 @@ QDateTime SecondsPeriod::getNextTime(const QDateTime &qdt) const {
   return newd.addSecs(append);
 }
 
-QDateTime SecondsPeriod::getPrevTime(const QDateTime &qdt) const {
+QDateTime SecondsPeriod::getPrevTime(const QDateTime qdt) const {
   QDateTime newd = qdt;
   mSecsToZero(&newd);
   int second = newd.time().second();

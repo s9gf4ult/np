@@ -5,19 +5,7 @@
 #include "SimpleCandle.h"
 #include "SimpleTick.h"
 #include "CandleVisitor.h"
-
-class Test : public QObject
-{
-    Q_OBJECT
-    
-public:
-    Test();
-    
-private Q_SLOTS:
-    void testReduceCandles();
-    void testImplicitSharing();
-};
-
+#include "tst_CandlesTests.h"
 
 class SetVolume : public CandleVisitor {
 public:
@@ -35,16 +23,11 @@ private:
     double Volume;
 };
 
-Test::Test()
+CandlesTests::CandlesTests()
 {
 }
 
-
-/**
- * @brief Test::testReduceCandles
- * testing reduceCandleCollection template function for correctness
- */
-void Test::testReduceCandles()
+void CandlesTests::testReduceCandles()
 {
 
     QList<Candle> list;
@@ -66,7 +49,7 @@ void Test::testReduceCandles()
     QCOMPARE(26., result.getHighCost());
 }
 
-void Test::testImplicitSharing()
+void CandlesTests::testImplicitSharing()
 {
     QDateTime d(QDateTime::currentDateTime());
     Candle a(new SimpleCandle(5, 10, 4, 15, 40,
@@ -79,7 +62,3 @@ void Test::testImplicitSharing()
     QVERIFY(a.data() != b.data());
 
 }
-
-QTEST_APPLESS_MAIN(Test)
-
-#include "tst_test.moc"

@@ -1,6 +1,8 @@
 #ifndef ABSTRACTPERIOD_H
 #define ABSTRACTPERIOD_H
 
+#include "PeriodVisitor.h"
+
 class AbstractPeriod {
 public:
     virtual QDateTime getNextTime(const QDateTime) const = 0;

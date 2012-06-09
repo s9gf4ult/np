@@ -1,8 +1,8 @@
 #ifndef COMMONSYSTEM_H
 #define COMMONSYSTEM_H
 
-#include "SimpleCandle.h"
-#include "SimpleTick.h"
+#include "Candle.h"
+#include "Period.h"
 #include <QDateTime>
 #include <QList>
 #include <QObject>
@@ -14,49 +14,12 @@
  * Instance of successor must be translated to \ref CommonBot successor
  */
 class CommonSystem : QObject {
-  Q_OBJECT;
+  Q_OBJECT
  public:
   /**Virtual destructor can be overwritten
    */
-  virtual ~CommonSystem() {};
+  virtual ~CommonSystem() {}
   
-  /**Return list of tickets.
-   * Each ticket is just a name as QString.
-   *
-   * \note
-   * QList must be destroyed by caller
-   */
-  virtual QList<QString> * getTicketsList() const = 0;
-  
-  /**Return list of candles
-   *
-   * \param ticket The name of ticket
-   * \param period The Period description
-   * \param begin The datetime of the begining of the range of candles to return
-   * \param end The datetime of the end of range
-   * \note
-   * returned QList must be destroyed by caller
-   */
-  virtual QList<SimpleCandle> *getCandles(const QString &ticket, const SharedPeriod &period, const QDateTime &begin, const QDateTime &end) const = 0;
-
-  /**Subscribe to changes of concrete ticket
-   */
-  virtual void subscribe(const QString &) = 0;
-
-  /**Unsubscribe to changes of the ticket
-   */
-  virtual void unsubscribe(const QString &) = 0;
-
-  /**Get list of subscipted tickets
-   *
-   * \note
-   * QList must be destroyed by caller
-   */
-  virtual QList<QString> * getSubscripted() const = 0;
-
-signals:
-  void newData(QList<SimpleCandle> &);
-  void newData(QList<SimpleTick> &);
   
 };
   

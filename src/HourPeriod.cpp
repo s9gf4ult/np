@@ -14,7 +14,7 @@ HourPeriod::HourPeriod(const HourPeriod &other) : Value(other.Value)
 {
 }
 
-QDateTime HourPeriod::getNextTime(const QDateTime & qdt) const {
+QDateTime HourPeriod::getNextTime(const QDateTime qdt) const {
   QDateTime ret = qdt;
   minuteSetZero(&ret);
   int hour = ret.time().hour();
@@ -23,7 +23,7 @@ QDateTime HourPeriod::getNextTime(const QDateTime & qdt) const {
   return ret.addSecs(append * 3600);
 };
 
-QDateTime HourPeriod::getPrevTime(const QDateTime &qdt) const {
+QDateTime HourPeriod::getPrevTime(const QDateTime qdt) const {
   QDateTime ret = qdt;
   minuteSetZero(&ret);
   int hour = ret.time().hour();
@@ -42,5 +42,10 @@ HourPeriod & HourPeriod::setValue(Multiple24 val) {
 };
 
 Multiple24 HourPeriod::getValue() const {
-  return Value;
-};
+    return Value;
+}
+
+SharedPeriod *HourPeriod::clonePeriod() const
+{
+    return new HourPeriod(*this);
+}

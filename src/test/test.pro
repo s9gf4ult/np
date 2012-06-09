@@ -15,12 +15,19 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 
-SOURCES += tst_test.cpp \
+SOURCES += \
     ../SimpleCandle.cpp \
     ../Candle.cpp \
-    ../CommonError.cpp
+    ../CommonError.cpp \
+    main.cpp \
+    tst_CandlesTests.cpp \
+    tst_PeriodsTests.cpp
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 DEPENDPATH += ../
 INCLUDEPATH += ../
+
+HEADERS += \
+    tst_CandlesTests.h \
+    tst_PeriodsTests.h
 

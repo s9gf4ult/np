@@ -15,16 +15,16 @@ DayPeriod::DayPeriod(const DayPeriod &other) : Value(other.Value), ControlPoint(
 {
 }
 
-QDateTime DayPeriod::getNextTime(const QDateTime &qdt) const {
+QDateTime DayPeriod::getNextTime(const QDateTime qdt) const {
   QDateTime ret = qdt;
   int days = getControlPoint().daysTo(ret);
   int val = static_cast<int>(getValue());
   int append = val - (days % val);
   append = append >= 0 ? append : -append;
   return ret.addDays(append);
-};
+}
 
-QDateTime DayPeriod::getPrevTime(const QDateTime &qdt) const {
+QDateTime DayPeriod::getPrevTime(const QDateTime qdt) const {
   QDateTime ret = qdt;
   int days = getControlPoint().daysTo(ret);
   int val = static_cast<int>(getValue());
@@ -35,11 +35,11 @@ QDateTime DayPeriod::getPrevTime(const QDateTime &qdt) const {
     append = -append;
   };
   return ret.addDays( -append );
-};
+}
 
 void DayPeriod::accept(PeriodVisitor *visitor) {
   visitor->visit(this);
-};
+}
 
 DayPeriod & DayPeriod::setValue(int val) {
   Value = val;
@@ -59,6 +59,11 @@ DayPeriod & DayPeriod::setControlPoint(const QDateTime &qdt) {
 const QDateTime &DayPeriod::getControlPoint() const
 {
     return this->ControlPoint;
+}
+
+SharedPeriod *DayPeriod::clonePeriod() const
+{
+    return new DayPeriod(*this);
 }
 
 

@@ -12,8 +12,8 @@ public:
   DayPeriod(const QDateTime &, int);
   DayPeriod(const DayPeriod &other);
   virtual ~DayPeriod() {}
-  virtual QDateTime getNextTime(const QDateTime &) const;
-  virtual QDateTime getPrevTime(const QDateTime &) const;
+  virtual QDateTime getNextTime(const QDateTime) const;
+  virtual QDateTime getPrevTime(const QDateTime) const;
   virtual void accept(PeriodVisitor *);
   virtual DayPeriod &setValue(int);
   virtual int getValue() const;

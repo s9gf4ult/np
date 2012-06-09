@@ -12,7 +12,7 @@ MinutesPeriod::MinutesPeriod(const MinutesPeriod &other) : Value(other.Value)
 {
 }
 
-QDateTime MinutesPeriod::getNextTime(const QDateTime &qdt) const {
+QDateTime MinutesPeriod::getNextTime(const QDateTime qdt) const {
   QDateTime ret = qdt;
   secsToZero(&ret);
   int minute = ret.time().minute();
@@ -21,7 +21,7 @@ QDateTime MinutesPeriod::getNextTime(const QDateTime &qdt) const {
   return ret.addSecs(append * 60);
 };
 
-QDateTime MinutesPeriod::getPrevTime(const QDateTime &qdt) const {
+QDateTime MinutesPeriod::getPrevTime(const QDateTime qdt) const {
   QDateTime ret = qdt;
   secsToZero(&ret);
   int minute = ret.time().minute();
