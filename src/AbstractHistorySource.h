@@ -16,23 +16,16 @@ class AbstractHistorySource {
 public:
     /**
      * @brief listTickers
-     * @return QList<QString> * - pointer which must be freed by the caller
+     * @return QList<QString> - list of names of tickets presented in the history
      */
     virtual QList<QString> listTickers() const = 0;
-
-    /**
-     * @brief listTickers
-     * @param search - string to search ticket name
-     * @return QList<QString> * - pointer which must be freed by the caller
-     */
-    virtual QList<QString> listTickers(const QString &search) const = 0;
 
     /**
      * @brief listSource list candles from primary data
      * @param ticket - ticket name
      * @param begin - earliest QDateTime period
      * @param end - latest QDateTime period
-     * @return pointer to list of pointers of \ref SharedCandle
+     * @return list of candles with source type
      * @note The list and it's contents must be freed by the caller
      */
     virtual QList<Candle> listSource(const QString ticket,
